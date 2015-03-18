@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:3862eef4e61d5c97d6fc42dbdae8f166:063cd7f57c6479d74453d071fbbe599a:fe619e36893f73ea01e28b73061b5242$ -->
+<!--Format:
+n  => name of the sprite
+x  => sprite x pos in texture
+y  => sprite y pos in texture
+w  => sprite width (may be trimmed)
+h  => sprite height (may be trimmed)
+oX => sprite's x-corner offset (only available if trimmed)
+oY => sprite's y-corner offset (only available if trimmed)
+oW => sprite's original width (only available if trimmed)
+oH => sprite's original height (only available if trimmed)
+r => 'y' only set if sprite is rotated
+-->
+<TextureAtlas imagePath="particlesAtlasB.png" width="1024" height="1024">
+    <sprite n="Lighting_LineBlast_B.png" x="512" y="0" w="480" h="480"/>
+    <sprite n="ShinnyBubble.png" x="128" y="890" w="128" h="128"/>
+    <sprite n="Sprite_bubble_explode_C.png" x="256" y="890" w="64" h="64"/>
+    <sprite n="bubble_bomb_smoke.png" x="512" y="480" w="336" h="29"/>
+    <sprite n="energyTrailSpriteSheetColor.png" x="768" y="826" w="256" h="128"/>
+    <sprite n="fireBurst.png" x="0" y="512" w="1000" h="250"/>
+    <sprite n="flames.png" x="512" y="826" w="256" h="128"/>
+    <sprite n="fueguito.png" x="512" y="762" w="512" h="64"/>
+    <sprite n="hitModeHighlightAtlas.png" x="0" y="890" w="128" h="128"/>
+    <sprite n="magiaBreFase.png" x="0" y="762" w="512" h="128"/>
+    <sprite n="saveModeExplosion.png" x="0" y="0" w="512" h="512"/>
+</TextureAtlas>

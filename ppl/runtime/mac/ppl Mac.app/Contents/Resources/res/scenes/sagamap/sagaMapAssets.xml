@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:de253961f80f08c5686de70994a0762c:ed9e1eb1abc397482aaa79384b916fb0:a5189b1c1717cf9e8713f008b4e373a1$ -->
+<!--Format:
+n  => name of the sprite
+x  => sprite x pos in texture
+y  => sprite y pos in texture
+w  => sprite width (may be trimmed)
+h  => sprite height (may be trimmed)
+pX => x pos of the pivot point (relative to sprite width)
+pY => y pos of the pivot point (relative to sprite height)
+oX => sprite's x-corner offset (only available if trimmed)
+oY => sprite's y-corner offset (only available if trimmed)
+oW => sprite's original width (only available if trimmed)
+oH => sprite's original height (only available if trimmed)
+r => 'y' only set if sprite is rotated
+-->
+<TextureAtlas imagePath="sagaMapAssets.png" width="512" height="512">
+    <sprite n="PotBubble_map.png" x="126" y="496" w="16" h="13" pX="0.5" pY="0.5" oX="0" oY="0" oW="16" oH="16"/>
+    <sprite n="altar.png" x="330" y="470" w="32" h="33" pX="0.5" pY="0.5" oX="0" oY="0" oW="32" oH="33"/>
+    <sprite n="bat.png" x="408" y="320" w="32" h="14" pX="0.5" pY="0.5" oX="0" oY="9" oW="32" oH="32"/>
+    <sprite n="boat.png" x="386" y="139" w="98" h="35" pX="0.5" pY="0.5" oX="1" oY="2" oW="100" oH="39"/>
+    <sprite n="boatShadow.png" x="257" y="161" w="100" h="27" pX="0.5" pY="0.5" oX="0" oY="0" oW="100" oH="28"/>
+    <sprite n="bonesMap.png" x="294" y="402" w="64" h="64" pX="0.5" pY="0.5"/>
+    <sprite n="branch01.png" x="3" y="398" w="121" h="62" pX="0.5" pY="0.5" oX="1" oY="2" oW="128" oH="64"/>
+    <sprite n="button.png" x="254" y="192" w="80" h="66" pX="0.5" pY="0.5" oX="0" oY="0" oW="80" oH="67"/>
+    <sprite n="button2.png" x="254" y="262" w="80" h="66" pX="0.5" pY="0.5" oX="0" oY="0" oW="80" oH="67"/>
+    <sprite n="buttonDisabled.png" x="254" y="332" w="80" h="66" pX="0.5" pY="0.5" oX="0" oY="0" oW="80" oH="67"/>
+    <sprite n="buttonMessages.png" x="408" y="245" w="57" h="49" pX="0.5" pY="0.5" oX="0" oY="2" oW="59" oH="52"/>
+    <sprite n="buyBooster.png" x="3" y="464" w="44" h="45" pX="0.5" pY="0.5" oX="0" oY="0" oW="44" oH="45"/>
+    <sprite n="buyBoosterDisable.png" x="51" y="464" w="44" h="45" pX="0.5" pY="0.5" oX="0" oY="0" oW="44" oH="45"/>
+    <sprite n="catMap.png" x="418" y="439" w="32" h="32" pX="0.5" pY="0.5"/>
+    <sprite n="cauldron.png" x="374" y="178" w="66" h="63" pX="0.5" pY="0.5" oX="0" oY="0" oW="66" oH="63"/>
+    <sprite n="cauldronFire.png" x="338" y="260" w="66" h="63" pX="0.5" pY="0.5" oX="0" oY="0" oW="66" oH="63"/>
+    <sprite n="cloud01.png" x="3" y="3" w="250" h="177" pX="0.5" pY="0.5" oX="0" oY="0" oW="250" oH="177"/>
+    <sprite n="cloud02.png" x="3" y="184" w="247" h="159" pX="0.5" pY="0.5" oX="0" oY="0" oW="250" oH="159"/>
+    <sprite n="desertDust.png" x="416" y="475" w="32" h="32" pX="0.5" pY="0.5"/>
+    <sprite n="dustShadow.png" x="374" y="245" w="30" h="11" pX="0.5" pY="0.5" oX="1" oY="12" oW="32" oH="32"/>
+    <sprite n="estrella.png" x="257" y="55" w="125" h="102" pX="0.5" pY="0.5" oX="0" oY="1" oW="125" oH="103"/>
+    <sprite n="eyeCircus_map.png" x="492" y="22" w="15" h="15" pX="0.5" pY="0.5" oX="0" oY="0" oW="16" oH="16"/>
+    <sprite n="fly.png" x="238" y="378" w="11" h="14" pX="0.5" pY="0.5" oX="3" oY="1" oW="16" oH="16"/>
+    <sprite n="frog_free_map.png" x="476" y="439" w="32" h="24" pX="0.5" pY="0.5" oX="0" oY="4" oW="32" oH="32"/>
+    <sprite n="ghost.png" x="338" y="192" w="32" h="64" pX="0.5" pY="0.5"/>
+    <sprite n="ghostFisher_map.png" x="362" y="391" w="32" h="63" pX="0.5" pY="0.5" oX="0" oY="0" oW="32" oH="64"/>
+    <sprite n="ghostPoster_map.png" x="444" y="178" w="64" h="61" pX="0.5" pY="0.5" oX="0" oY="3" oW="64" oH="64"/>
+    <sprite n="ghostsIn.png" x="479" y="378" w="26" h="26" pX="0.5" pY="0.5" oX="9" oY="9" oW="46" oH="46"/>
+    <sprite n="ghostsOut.png" x="366" y="458" w="46" h="46" pX="0.5" pY="0.5" oX="0" oY="0" oW="46" oH="46"/>
+    <sprite n="goldBars.png" x="128" y="398" w="90" h="56" pX="0.5" pY="0.5" oX="0" oY="0" oW="90" oH="56"/>
+    <sprite n="greenSpirit.png" x="454" y="439" w="18" h="32" pX="0.5" pY="0.5" oX="0" oY="0" oW="18" oH="32"/>
+    <sprite n="iceWindMap.png" x="338" y="391" w="6" h="6" pX="0.5" pY="0.5" oX="1" oY="1" oW="8" oH="8"/>
+    <sprite n="iconClassic.png" x="469" y="243" w="40" h="33" pX="0.5" pY="0.5" oX="0" oY="0" oW="40" oH="35"/>
+    <sprite n="iconHit.png" x="469" y="280" w="37" h="23" pX="0.5" pY="0.5" oX="0" oY="0" oW="38" oH="23"/>
+    <sprite n="iconSave.png" x="285" y="470" w="41" h="25" pX="0.5" pY="0.5" oX="1" oY="1" oW="44" oH="28"/>
+    <sprite n="iconWheel.png" x="468" y="307" w="35" h="31" pX="0.5" pY="0.5" oX="1" oY="1" oW="37" oH="33"/>
+    <sprite n="infoBooster.png" x="398" y="391" w="43" h="44" pX="0.5" pY="0.5"/>
+    <sprite n="lakeWaves.png" x="238" y="347" w="11" h="27" pX="0.5" pY="0.5" oX="1" oY="2" oW="15" oH="30"/>
+    <sprite n="lakeWorm.png" x="441" y="342" w="32" h="29" pX="0.5" pY="0.5" oX="0" oY="3" oW="32" oH="32"/>
+    <sprite n="lifeGiven.png" x="398" y="439" w="16" h="15" pX="0.5" pY="0.5" oX="0" oY="0" oW="16" oH="16"/>
+    <sprite n="lifesBar.png" x="445" y="405" w="30" h="30" pX="0.5" pY="0.5"/>
+    <sprite n="lightGlow.png" x="361" y="180" w="8" h="8" pX="0.5" pY="0.5" oX="4" oY="4" oW="16" oH="16"/>
+    <sprite n="lightGlow_map.png" x="445" y="375" w="27" h="26" pX="0.5" pY="0.5" oX="2" oY="3" oW="32" oH="32"/>
+    <sprite n="lightWindow_map.png" x="405" y="338" w="32" h="32" pX="0.5" pY="0.5"/>
+    <sprite n="live.png" x="222" y="402" w="68" h="62" pX="0.5" pY="0.5" oX="0" oY="0" oW="68" oH="62"/>
+    <sprite n="millBlades.png" x="477" y="342" w="32" h="32" pX="0.5" pY="0.5"/>
+    <sprite n="ojitos.png" x="99" y="493" w="23" h="14" pX="0.5" pY="0.5"/>
+    <sprite n="riverWaves.png" x="408" y="298" w="56" h="18" pX="0.5" pY="0.5" oX="2" oY="0" oW="60" oH="19"/>
+    <sprite n="sakuraPetalMap.png" x="361" y="161" w="6" h="15" pX="0.5" pY="0.5" oX="1" oY="0" oW="8" oH="16"/>
+    <sprite n="sandWorm_map.png" x="470" y="55" w="31" h="64" pX="0.5" pY="0.5" oX="1" oY="0" oW="32" oH="64"/>
+    <sprite n="smoke_map.png" x="338" y="327" w="63" h="60" pX="0.5" pY="0.5" oX="0" oY="4" oW="64" oH="64"/>
+    <sprite n="socialPlayerPicture.jpg" x="99" y="464" w="25" h="25" pX="0.5" pY="0.5"/>
+    <sprite n="sparksStars.png" x="3" y="347" w="231" h="47" pX="0.5" pY="0.5" oX="6" oY="5" oW="246" oH="57"/>
+    <sprite n="stars1.png" x="452" y="475" w="31" h="28" pX="0.5" pY="0.5" oX="2" oY="2" oW="36" oH="32"/>
+    <sprite n="stars2.png" x="220" y="468" w="61" h="30" pX="0.5" pY="0.5" oX="2" oY="2" oW="66" oH="34"/>
+    <sprite n="stars3.png" x="128" y="458" w="88" h="34" pX="0.5" pY="0.5" oX="0" oY="0" oW="93" oH="34"/>
+    <sprite n="starsBknd.png" x="257" y="3" w="231" h="48" pX="0.5" pY="0.5" oX="4" oY="2" oW="239" oH="53"/>
+    <sprite n="tumb.png" x="492" y="3" w="16" h="15" pX="0.5" pY="0.5" oX="0" oY="0" oW="16" oH="16"/>
+    <sprite n="uiPannel.png" x="386" y="55" w="80" h="80" pX="0.5" pY="0.5"/>
+</TextureAtlas>

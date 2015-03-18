@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:b8a8017fb1a32b0b632f0b471c948002:466da1fce097e46029962e022fee69d2:6d9a41409deb22caef6727ac2366c151$ -->
+<!--Format:
+n  => name of the sprite
+x  => sprite x pos in texture
+y  => sprite y pos in texture
+w  => sprite width (may be trimmed)
+h  => sprite height (may be trimmed)
+oX => sprite's x-corner offset (only available if trimmed)
+oY => sprite's y-corner offset (only available if trimmed)
+oW => sprite's original width (only available if trimmed)
+oH => sprite's original height (only available if trimmed)
+r => 'y' only set if sprite is rotated
+-->
+<TextureAtlas imagePath="particlesAtlas.png" width="512" height="512">
+    <sprite n="ArcaneBubble_01.png" x="331" y="426" w="64" h="64"/>
+    <sprite n="ArcaneBubble_Atlas.png" x="257" y="129" w="128" h="128"/>
+    <sprite n="BallEnergy.png" x="266" y="426" w="64" h="64"/>
+    <sprite n="Electric_Halo.png" x="201" y="440" w="64" h="64"/>
+    <sprite n="Electric_Halo_Arcane.png" x="396" y="390" w="64" h="64"/>
+    <sprite n="Electric_Halo_Pink.png" x="396" y="325" w="64" h="64"/>
+    <sprite n="Electric_Halo_Red.png" x="396" y="260" w="64" h="64"/>
+    <sprite n="Glow.png" x="17" y="496" w="16" h="16"/>
+    <sprite n="LightBeam.png" x="386" y="0" w="32" h="128"/>
+    <sprite n="LightBeams.png" x="0" y="257" w="200" h="200"/>
+    <sprite n="LineBlastSparks.png" x="386" y="195" w="64" h="64"/>
+    <sprite n="PotBubble.png" x="0" y="496" w="16" h="16"/>
+    <sprite n="Roof_Star_ripple.png" x="386" y="130" w="64" h="64"/>
+    <sprite n="Sprite_Drop.png" x="369" y="287" w="8" h="8"/>
+    <sprite n="Sprite_SmokePuff.png" x="0" y="0" w="256" h="256"/>
+    <sprite n="Star_LensFlare.png" x="331" y="361" w="64" h="64"/>
+    <sprite n="aim_fx_big_star.png" x="129" y="458" w="26" h="26"/>
+    <sprite n="aim_fx_halo_blue.png" x="331" y="296" w="64" h="64"/>
+    <sprite n="aim_fx_halo_green.png" x="266" y="361" w="64" h="64"/>
+    <sprite n="aim_fx_halo_purple.png" x="266" y="296" w="64" h="64"/>
+    <sprite n="aim_fx_halo_red.png" x="201" y="375" w="64" h="64"/>
+    <sprite n="aim_fx_halo_yellow.png" x="201" y="310" w="64" h="64"/>
+    <sprite n="aim_fx_little_star.png" x="484" y="62" w="26" h="26"/>
+    <sprite n="blackHolePoint.png" x="0" y="491" w="32" h="4"/>
+    <sprite n="bubble_bomb_cometa.png" x="254" y="258" w="114" h="37"/>
+    <sprite n="bubbles04.png" x="369" y="260" w="26" h="26"/>
+    <sprite n="bucket_effect_lines.png" x="396" y="455" w="16" h="32"/>
+    <sprite n="cloudSmoke.png" x="201" y="257" w="52" h="52"/>
+    <sprite n="dragon_egg_piece.png" x="451" y="130" w="32" h="32"/>
+    <sprite n="fireBubbleAtlas.png" x="257" y="0" w="128" h="128"/>
+    <sprite n="hotPotDotDark.png" x="484" y="0" w="26" h="61"/>
+    <sprite n="hotPotLineDark.png" x="511" y="0" w="1" h="2"/>
+    <sprite n="rainbow.png" x="419" y="65" w="64" h="64"/>
+    <sprite n="ringExplosion.png" x="0" y="458" w="128" h="32"/>
+    <sprite n="spiderBounceFx.png" x="419" y="0" w="64" h="64"/>
+</TextureAtlas>

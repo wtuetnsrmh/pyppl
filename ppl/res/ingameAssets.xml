@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:101fd5bac99e7ec53b345f4dee8a38da:d79a640446e03ed856171dbe6cb34982:ff6fcca6fdeb796b2a75ae2eb2ee598b$ -->
+<!--Format:
+n  => name of the sprite
+x  => sprite x pos in texture
+y  => sprite y pos in texture
+w  => sprite width (may be trimmed)
+h  => sprite height (may be trimmed)
+pX => x pos of the pivot point (relative to sprite width)
+pY => y pos of the pivot point (relative to sprite height)
+oX => sprite's x-corner offset (only available if trimmed)
+oY => sprite's y-corner offset (only available if trimmed)
+oW => sprite's original width (only available if trimmed)
+oH => sprite's original height (only available if trimmed)
+r => 'y' only set if sprite is rotated
+-->
+<TextureAtlas imagePath="ingameAssets.png" width="1024" height="1024">
+    <sprite n="AimLine_Dot_SourceB.png" x="841" y="116" w="16" h="16" pX="0.5" pY="0.5"/>
+    <sprite n="ComboToolTipsBanner_03.png" x="601" y="48" w="256" h="64" pX="0.5" pY="0.5"/>
+    <sprite n="GhostBaseBody.png" x="690" y="661" w="71" h="82" pX="0.5" pY="0.5"/>
+    <sprite n="GhostBaseFace_Angry.png" x="195" y="131" w="53" h="27" pX="0.5" pY="0.5"/>
+    <sprite n="GhostBaseFace_Close.png" x="195" y="162" w="53" h="27" pX="0.5" pY="0.5"/>
+    <sprite n="GhostBaseFace_Happy.png" x="195" y="193" w="53" h="27" pX="0.5" pY="0.5"/>
+    <sprite n="GhostBaseFace_Open.png" x="195" y="224" w="53" h="27" pX="0.5" pY="0.5"/>
+    <sprite n="GhostBaseFace_Sad.png" x="784" y="116" w="53" h="27" pX="0.5" pY="0.5"/>
+    <sprite n="GhostBaseFace_Sick.png" x="195" y="255" w="53" h="27" pX="0.5" pY="0.5"/>
+    <sprite n="HitsText.png" x="245" y="712" w="94" h="40" pX="0.5" pY="0.5"/>
+    <sprite n="RoofStars.png" x="177" y="473" w="64" h="64" pX="0.5" pY="0.5"/>
+    <sprite n="arrow_hint.png" x="587" y="207" w="176" h="176" pX="0.5" pY="0.5"/>
+    <sprite n="backgroundPixel.png" x="593" y="60" w="1" h="1" pX="0.5" pY="0.5"/>
+    <sprite n="barDown.png" x="178" y="399" w="68" h="70" pX="0.5" pY="0.5"/>
+    <sprite n="barUp.png" x="195" y="286" w="45" h="40" pX="0.5" pY="0.5"/>
+    <sprite n="baroness.png" x="767" y="498" w="109" h="125" pX="0.5" pY="0.5"/>
+    <sprite n="blackHole01.png" x="245" y="756" w="85" h="88" pX="0.5" pY="0.5"/>
+    <sprite n="blackHole02.png" x="3" y="772" w="85" h="88" pX="0.5" pY="0.5"/>
+    <sprite n="blackHole03.png" x="3" y="864" w="85" h="88" pX="0.5" pY="0.5"/>
+    <sprite n="box1.png" x="584" y="387" w="176" h="79" pX="0.5" pY="0.5"/>
+    <sprite n="box1Booster.png" x="123" y="912" w="82" h="83" pX="0.5" pY="0.5"/>
+    <sprite n="box1Level.png" x="595" y="116" w="185" h="87" pX="0.5" pY="0.5"/>
+    <sprite n="box1Mode.png" x="252" y="233" w="176" h="113" pX="0.5" pY="0.5"/>
+    <sprite n="bubbleCloud.png" x="3" y="956" w="56" h="56" pX="0.5" pY="0.5"/>
+    <sprite n="bubbleCloudRotating.png" x="178" y="330" w="69" h="65" pX="0.5" pY="0.5"/>
+    <sprite n="bubbleSaveFrogTriangle.png" x="767" y="250" w="120" h="120" pX="0.5" pY="0.5"/>
+    <sprite n="bubbleSaveGroupCircle.png" x="63" y="956" w="56" h="56" pX="0.5" pY="0.5"/>
+    <sprite n="bubbleSaveGroupCircleLight.png" x="209" y="869" w="56" h="56" pX="0.5" pY="0.5"/>
+    <sprite n="bubbleSaveGroupPentagon.png" x="3" y="424" w="170" h="170" pX="0.5" pY="0.5"/>
+    <sprite n="bubbleSaveGroupPentagonLight.png" x="250" y="455" w="170" h="170" pX="0.5" pY="0.5"/>
+    <sprite n="bubbleSaveGroupTriangle.png" x="891" y="259" w="120" h="120" pX="0.5" pY="0.5"/>
+    <sprite n="bubbleSaveGroupTriangleLight.png" x="767" y="374" w="120" h="120" pX="0.5" pY="0.5"/>
+    <sprite n="bubbleSaveMouseCircle.png" x="209" y="929" w="56" h="56" pX="0.5" pY="0.5"/>
+    <sprite n="bubbleSaveOwlPentagon.png" x="3" y="598" w="170" h="170" pX="0.5" pY="0.5"/>
+    <sprite n="bucket1.png" x="541" y="470" w="156" h="80" pX="0.5" pY="0.5"/>
+    <sprite n="bucket1Mask.png" x="539" y="554" w="156" h="80" pX="0.5" pY="0.5"/>
+    <sprite n="bucket2.png" x="891" y="383" w="111" h="79" pX="0.5" pY="0.5"/>
+    <sprite n="bucket2Mask.png" x="891" y="466" w="111" h="79" pX="0.5" pY="0.5"/>
+    <sprite n="bucket3.png" x="405" y="697" w="100" h="84" pX="0.5" pY="0.5"/>
+    <sprite n="bucket3Mask.png" x="880" y="549" w="100" h="84" pX="0.5" pY="0.5"/>
+    <sprite n="bucket4.png" x="426" y="414" w="111" h="79" pX="0.5" pY="0.5"/>
+    <sprite n="bucket4Mask.png" x="424" y="497" w="111" h="79" pX="0.5" pY="0.5"/>
+    <sprite n="bucket5.png" x="530" y="638" w="156" h="79" pX="0.5" pY="0.5"/>
+    <sprite n="bucket5Mask.png" x="245" y="629" w="156" h="79" pX="0.5" pY="0.5"/>
+    <sprite n="buttonBooster.png" x="894" y="132" w="120" h="123" pX="0.5" pY="0.5"/>
+    <sprite n="buyBooster.png" x="343" y="712" w="57" h="58" pX="0.5" pY="0.5"/>
+    <sprite n="counter1Base.png" x="3" y="319" w="171" h="101" pX="0.5" pY="0.5"/>
+    <sprite n="counter1Frame.png" x="251" y="350" w="171" h="101" pX="0.5" pY="0.5"/>
+    <sprite n="counter2Base.png" x="601" y="3" w="291" h="41" pX="0.5" pY="0.5"/>
+    <sprite n="counter2Frame.png" x="3" y="25" w="291" h="41" pX="0.5" pY="0.5"/>
+    <sprite n="counter2Gradient.png" x="298" y="25" w="291" h="41" pX="0.5" pY="0.5"/>
+    <sprite n="counterStarBIg.png" x="896" y="3" w="125" h="125" pX="0.5" pY="0.5"/>
+    <sprite n="counterStarBar.png" x="593" y="25" w="4" h="31" pX="0.5" pY="0.5"/>
+    <sprite n="counterStarOff.png" x="861" y="48" w="29" h="29" pX="0.5" pY="0.5"/>
+    <sprite n="counterStarOn.png" x="861" y="81" w="29" h="29" pX="0.5" pY="0.5"/>
+    <sprite n="counterStarShadow.png" x="861" y="114" w="29" h="29" pX="0.5" pY="0.5"/>
+    <sprite n="frogFree.png" x="432" y="300" w="148" h="110" pX="0.5" pY="0.5"/>
+    <sprite n="iconFirebubble.png" x="767" y="627" w="98" h="98" pX="0.5" pY="0.5"/>
+    <sprite n="iconGhost.png" x="701" y="534" w="60" h="55" pX="0.5" pY="0.5"/>
+    <sprite n="iconHit.png" x="172" y="813" w="64" h="52" pX="0.5" pY="0.5"/>
+    <sprite n="iconHoles.png" x="971" y="637" w="41" h="33" pX="0.5" pY="0.5"/>
+    <sprite n="iconLock.png" x="463" y="173" w="120" h="123" pX="0.5" pY="0.5"/>
+    <sprite n="iconRainbow.png" x="869" y="637" w="98" h="98" pX="0.5" pY="0.5"/>
+    <sprite n="iconSave.png" x="784" y="147" w="105" h="99" pX="0.5" pY="0.5"/>
+    <sprite n="icon_lava_bubble_big.png" x="765" y="729" w="98" h="98" pX="0.5" pY="0.5"/>
+    <sprite n="icon_ten_bubbles.png" x="424" y="580" w="102" h="113" pX="0.5" pY="0.5"/>
+    <sprite n="icon_transform_trick.png" x="867" y="739" w="98" h="98" pX="0.5" pY="0.5"/>
+    <sprite n="infoBooster.png" x="92" y="851" w="56" h="57" pX="0.5" pY="0.5"/>
+    <sprite n="mouseFree.png" x="701" y="470" w="62" h="60" pX="0.5" pY="0.5"/>
+    <sprite n="owlFree.png" x="253" y="70" w="206" h="159" pX="0.5" pY="0.5"/>
+    <sprite n="roof.png" x="3" y="3" w="594" h="18" pX="0.5" pY="0.5"/>
+    <sprite n="shooter01.png" x="3" y="131" w="188" h="184" pX="0.5" pY="0.5"/>
+    <sprite n="sparksStars.png" x="3" y="70" w="246" h="57" pX="0.5" pY="0.5"/>
+    <sprite n="spiderBlueGlow.png" x="177" y="541" w="64" h="64" pX="0.5" pY="0.5"/>
+    <sprite n="spiderGreenGlow.png" x="177" y="609" w="64" h="64" pX="0.5" pY="0.5"/>
+    <sprite n="spiderTextureBlue.png" x="699" y="593" w="64" h="64" pX="0.5" pY="0.5"/>
+    <sprite n="spiderTextureGreen.png" x="177" y="677" w="64" h="64" pX="0.5" pY="0.5"/>
+    <sprite n="spiderTextureYellow.png" x="177" y="745" w="64" h="64" pX="0.5" pY="0.5"/>
+    <sprite n="spiderYellowGlow.png" x="334" y="774" w="64" h="64" pX="0.5" pY="0.5"/>
+    <sprite n="transform_trick_bibble_wand.png" x="463" y="70" w="128" h="99" pX="0.5" pY="0.5"/>
+    <sprite n="tutorialBox.png" x="92" y="772" w="76" h="75" pX="0.5" pY="0.5"/>
+</TextureAtlas>

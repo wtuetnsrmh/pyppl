@@ -1,0 +1,18 @@
+{
+    "version":"1.0",
+    "clientTypeMapping": [
+        {
+            "clientType": "canvas",
+
+            "mapping": [
+            ]
+        },
+
+        {
+            "clientType": "mobile",
+
+            "mapping": [
+            ]
+        }
+    ]
+}

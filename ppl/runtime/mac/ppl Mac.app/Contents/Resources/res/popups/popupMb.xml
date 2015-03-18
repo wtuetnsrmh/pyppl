@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:254c76db02737c620634d524e9aba9b0:8b5f814eed33782f05e94aae1f9fe4d1:2fb7814fd8da7f0884d4d028a15c4863$ -->
+<!--Format:
+n  => name of the sprite
+x  => sprite x pos in texture
+y  => sprite y pos in texture
+w  => sprite width (may be trimmed)
+h  => sprite height (may be trimmed)
+pX => x pos of the pivot point (relative to sprite width)
+pY => y pos of the pivot point (relative to sprite height)
+oX => sprite's x-corner offset (only available if trimmed)
+oY => sprite's y-corner offset (only available if trimmed)
+oW => sprite's original width (only available if trimmed)
+oH => sprite's original height (only available if trimmed)
+r => 'y' only set if sprite is rotated
+-->
+<TextureAtlas imagePath="popupMb.png" width="1024" height="1024">
+    <sprite n="arrow.png" x="913" y="866" w="10" h="39" pX="0.5" pY="0.5" oX="1" oY="1" oW="12" oH="41"/>
+    <sprite n="avatar.png" x="916" y="553" w="70" h="70" pX="0.5" pY="0.5"/>
+    <sprite n="baseInfo.png" x="860" y="437" w="110" h="112" pX="0.5" pY="0.5" oX="0" oY="0" oW="110" oH="112"/>
+    <sprite n="baseInfoGold.png" x="876" y="637" w="36" h="36" pX="0.5" pY="0.5"/>
+    <sprite n="black.png" x="378" y="626" w="1" h="1" pX="0.5" pY="0.5"/>
+    <sprite n="bounce_apprentice.png" x="631" y="947" w="71" h="71" pX="0.5" pY="0.5"/>
+    <sprite n="bouncer.png" x="468" y="949" w="71" h="71" pX="0.5" pY="0.5"/>
+    <sprite n="bubble_icon.png" x="505" y="220" w="134" h="134" pX="0.5" pY="0.5" oX="0" oY="0" oW="134" oH="134"/>
+    <sprite n="buttonBuy.png" x="3" y="941" w="78" h="80" pX="0.5" pY="0.5" oX="0" oY="0" oW="78" oH="80"/>
+    <sprite n="buyBoosterDisable.png" x="304" y="948" w="57" h="58" pX="0.5" pY="0.5" oX="0" oY="0" oW="57" oH="58"/>
+    <sprite n="cancelButton.png" x="378" y="631" w="175" h="102" pX="0.5" pY="0.5" oX="0" oY="0" oW="175" oH="102"/>
+    <sprite n="characterBalloon.png" x="3" y="443" w="193" h="279" pX="0.5" pY="0.5" oX="0" oY="0" oW="193" oH="279"/>
+    <sprite n="checkFail.png" x="876" y="679" w="67" h="65" pX="0.5" pY="0.5" oX="0" oY="0" oW="67" oH="65"/>
+    <sprite n="checkOk.png" x="365" y="949" w="99" h="65" pX="0.5" pY="0.5" oX="0" oY="0" oW="99" oH="65"/>
+    <sprite n="checkboxBase.png" x="680" y="631" w="34" h="33" pX="0.5" pY="0.5" oX="0" oY="1" oW="35" oH="35"/>
+    <sprite n="closeButton.png" x="798" y="764" w="76" h="77" pX="0.5" pY="0.5"/>
+    <sprite n="cursor_white.png" x="990" y="3" w="31" h="32" pX="0.5" pY="0.5" oX="0" oY="0" oW="32" oH="32"/>
+    <sprite n="decoTop.png" x="680" y="767" w="63" h="45" pX="0.5" pY="0.5" oX="0" oY="0" oW="63" oH="45"/>
+    <sprite n="destroyer.png" x="800" y="911" w="71" h="71" pX="0.5" pY="0.5"/>
+    <sprite n="doubleTrail.png" x="85" y="941" w="110" h="60" pX="0.5" pY="0.5"/>
+    <sprite n="fbIconBlue.png" x="680" y="668" w="96" h="95" pX="0.5" pY="0.5" oX="1" oY="1" oW="98" oH="98"/>
+    <sprite n="fiveMovesSmall.png" x="406" y="450" w="182" h="177" pX="0.5" pY="0.5" oX="2" oY="2" oW="206" oH="181"/>
+    <sprite n="frameFriend.png" x="780" y="668" w="92" h="92" pX="0.5" pY="0.5" oX="0" oY="0" oW="92" oH="92"/>
+    <sprite n="frameHighScore.png" x="702" y="816" w="92" h="92" pX="0.5" pY="0.5" oX="0" oY="0" oW="92" oH="92"/>
+    <sprite n="goldBars.png" x="916" y="627" w="72" h="48" pX="0.5" pY="0.5" oX="0" oY="0" oW="72" oH="48"/>
+    <sprite n="goldBow.png" x="878" y="814" w="55" h="48" pX="0.5" pY="0.5"/>
+    <sprite n="hit.png" x="930" y="210" w="50" h="50" pX="0.5" pY="0.5" oX="2" oY="2" oW="55" oH="55"/>
+    <sprite n="hit02.png" x="949" y="745" w="52" h="52" pX="0.5" pY="0.5" oX="1" oY="2" oW="55" oH="55"/>
+    <sprite n="iconGlow.png" x="643" y="215" w="99" h="99" pX="0.5" pY="0.5" oX="0" oY="0" oW="99" oH="99"/>
+    <sprite n="iconHalo.png" x="270" y="220" w="231" h="226" pX="0.5" pY="0.5" oX="1" oY="5" oW="234" oH="234"/>
+    <sprite n="iconLive.png" x="521" y="3" w="227" h="208" pX="0.5" pY="0.5" oX="2" oY="3" oW="231" oH="214"/>
+    <sprite n="invitefriends.png" x="557" y="631" w="119" h="181" pX="0.5" pY="0.5" oX="3" oY="3" oW="125" oH="186"/>
+    <sprite n="kingdom_logo_gold_big.png" x="870" y="866" w="39" h="39" pX="0.5" pY="0.5" oX="0" oY="0" oW="39" oH="39"/>
+    <sprite n="lineHighScorePanel.png" x="984" y="3" w="2" h="288" pX="0.5" pY="0.5" oX="0" oY="0" oW="2" oH="288"/>
+    <sprite n="lostLive.png" x="270" y="3" w="247" h="213" pX="0.5" pY="0.5" oX="1" oY="1" oW="248" oH="214"/>
+    <sprite n="morrisLives.png" x="752" y="3" w="228" h="203" pX="0.5" pY="0.5" oX="0" oY="0" oW="228" oH="203"/>
+    <sprite n="movilConFail.png" x="557" y="816" w="141" h="114" pX="0.5" pY="0.5"/>
+    <sprite n="movilConOk.png" x="746" y="316" w="144" h="117" pX="0.5" pY="0.5" oX="0" oY="0" oW="144" oH="117"/>
+    <sprite n="movilCrossPromo.png" x="930" y="264" w="45" h="37" pX="0.5" pY="0.5" oX="0" oY="4" oW="45" oH="45"/>
+    <sprite n="offerSticker.png" x="553" y="947" w="74" h="74" pX="0.5" pY="0.5" oX="0" oY="0" oW="74" oH="74"/>
+    <sprite n="panelBase.png" x="215" y="786" w="155" h="158" pX="0.5" pY="0.5"/>
+    <sprite n="panelLevel.png" x="706" y="912" w="90" h="84" pX="0.5" pY="0.5" oX="0" oY="0" oW="90" oH="84"/>
+    <sprite n="playButton.png" x="378" y="737" w="175" h="102" pX="0.5" pY="0.5" oX="0" oY="0" oW="175" oH="102"/>
+    <sprite n="playButtonDisable.png" x="374" y="843" w="175" h="102" pX="0.5" pY="0.5" oX="0" oY="0" oW="175" oH="102"/>
+    <sprite n="popupBasic.png" x="3" y="726" w="208" h="211" pX="0.5" pY="0.5"/>
+    <sprite n="popupCircle.png" x="3" y="3" w="263" h="436" pX="0.5" pY="0.5" oX="0" oY="0" oW="263" oH="436"/>
+    <sprite n="purplePixel.png" x="746" y="215" w="2" h="2" pX="0.5" pY="0.5"/>
+    <sprite n="redLine.png" x="618" y="358" w="13" h="53" pX="0.5" pY="0.5" oX="0" oY="0" oW="13" oH="53"/>
+    <sprite n="roofTutorial.png" x="553" y="934" w="135" h="9" pX="0.5" pY="0.5" oX="0" oY="0" oW="135" oH="9"/>
+    <sprite n="sendBubbles.png" x="730" y="562" w="107" h="102" pX="0.5" pY="0.5" oX="0" oY="0" oW="108" oH="103"/>
+    <sprite n="sendFriendUnlock.png" x="894" y="316" w="127" h="98" pX="0.5" pY="0.5" oX="0" oY="0" oW="127" oH="100"/>
+    <sprite n="sendLive.png" x="505" y="358" w="109" h="86" pX="0.5" pY="0.5"/>
+    <sprite n="sendLiveCheck.png" x="592" y="584" w="54" h="43" pX="0.5" pY="0.5" oX="0" oY="0" oW="54" oH="43"/>
+    <sprite n="sniper.png" x="841" y="562" w="71" h="71" pX="0.5" pY="0.5"/>
+    <sprite n="socialButton.png" x="752" y="210" w="174" h="102" pX="0.5" pY="0.5" oX="0" oY="0" oW="174" oH="102"/>
+    <sprite n="specialOfferLabel.png" x="200" y="450" w="202" h="172" pX="0.5" pY="0.5" oX="0" oY="0" oW="202" oH="172"/>
+    <sprite n="spiderBlue.png" x="878" y="748" w="67" h="62" pX="0.5" pY="0.5" oX="0" oY="0" oW="67" oH="62"/>
+    <sprite n="spiderGreen.png" x="798" y="845" w="68" h="62" pX="0.5" pY="0.5" oX="0" oY="0" oW="68" oH="62"/>
+    <sprite n="spiderHit.png" x="875" y="909" w="41" h="37" pX="0.5" pY="0.5" oX="0" oY="0" oW="41" oH="37"/>
+    <sprite n="spiderYellow.png" x="947" y="679" w="68" h="62" pX="0.5" pY="0.5" oX="0" oY="0" oW="68" oH="62"/>
+    <sprite n="star.png" x="650" y="584" w="46" h="43" pX="0.5" pY="0.5" oX="0" oY="0" oW="46" oH="44"/>
+    <sprite n="starOff.png" x="730" y="437" w="126" h="121" pX="0.5" pY="0.5" oX="8" oY="0" oW="134" oH="132"/>
+    <sprite n="starOn.png" x="592" y="448" w="134" h="132" pX="0.5" pY="0.5"/>
+    <sprite n="trail.png" x="199" y="948" w="101" h="55" pX="0.5" pY="0.5" oX="0" oY="0" oW="101" oH="55"/>
+    <sprite n="transparenPixel.png" x="521" y="215" w="1" h="1" pX="0.5" pY="0.5" oX="0" oY="0" oW="1" oH="1"/>
+    <sprite n="wifiBar01.png" x="643" y="318" w="99" h="96" pX="0.5" pY="0.5" oX="0" oY="0" oW="99" oH="96"/>
+    <sprite n="wifiBar02.png" x="215" y="626" w="159" h="156" pX="0.5" pY="0.5" oX="7" oY="3" oW="177" oH="164"/>
+    <sprite n="wifiPoint.png" x="800" y="986" w="36" h="35" pX="0.5" pY="0.5" oX="3" oY="3" oW="42" oH="38"/>
+</TextureAtlas>

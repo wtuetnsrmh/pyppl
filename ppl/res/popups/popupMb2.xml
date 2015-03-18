@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:7a1152b16d44f5557adf9232d33ab6ae:ca2d67619d5e7f0485a79a0d58e5acf9:338bcaa5dd93c026411ff59eb2cb5d76$ -->
+<!--Format:
+n  => name of the sprite
+x  => sprite x pos in texture
+y  => sprite y pos in texture
+w  => sprite width (may be trimmed)
+h  => sprite height (may be trimmed)
+pX => x pos of the pivot point (relative to sprite width)
+pY => y pos of the pivot point (relative to sprite height)
+oX => sprite's x-corner offset (only available if trimmed)
+oY => sprite's y-corner offset (only available if trimmed)
+oW => sprite's original width (only available if trimmed)
+oH => sprite's original height (only available if trimmed)
+r => 'y' only set if sprite is rotated
+-->
+<TextureAtlas imagePath="popupMb2.png" width="1024" height="1024">
+    <sprite n="StellaHugsBaroness.png" x="897" y="322" w="118" h="132" pX="0.5" pY="0.5" oX="0" oY="0" oW="118" oH="132"/>
+    <sprite n="block.png" x="213" y="277" w="92" h="97" pX="0.5" pY="0.5" oX="0" oY="0" oW="92" oH="97"/>
+    <sprite n="catwin.png" x="834" y="2" w="107" h="222" pX="0.5" pY="0.5" oX="0" oY="0" oW="107" oH="222"/>
+    <sprite n="cauldronColLock.png" x="418" y="753" w="200" h="191" pX="0.5" pY="0.5"/>
+    <sprite n="dragCircle.png" x="897" y="273" w="35" h="34" pX="0.5" pY="0.5" oX="0" oY="0" oW="35" oH="34"/>
+    <sprite n="dragFinguer.png" x="832" y="376" w="45" h="44" pX="0.5" pY="0.5" oX="0" oY="0" oW="45" oH="44"/>
+    <sprite n="dragLine.png" x="211" y="546" w="98" h="22" pX="0.5" pY="0.5" oX="0" oY="0" oW="98" oH="22"/>
+    <sprite n="fireBubbleTutorial.png" x="897" y="226" w="35" h="45" pX="0.5" pY="0.5" oX="0" oY="0" oW="35" oH="45"/>
+    <sprite n="goldBarBox.png" x="213" y="376" w="100" h="83" pX="0.5" pY="0.5"/>
+    <sprite n="goldBarSack.png" x="213" y="461" w="100" h="83" pX="0.5" pY="0.5"/>
+    <sprite n="goldbarCauldrons.png" x="832" y="456" w="118" h="83" pX="0.5" pY="0.5" oX="0" oY="0" oW="118" oH="83"/>
+    <sprite n="haloLight.png" x="834" y="226" w="61" h="148" pX="0.5" pY="0.5" oX="0" oY="0" oW="61" oH="148"/>
+    <sprite n="iconBoosterPlaceHolder.png" x="2" y="487" w="207" h="208" pX="0.5" pY="0.5" oX="0" oY="0" oW="207" oH="208"/>
+    <sprite n="iconFirebubbleBig.png" x="2" y="277" w="209" h="208" pX="0.5" pY="0.5" oX="0" oY="0" oW="209" oH="208"/>
+    <sprite n="iconRainbowBig.png" x="315" y="516" w="207" h="207" pX="0.5" pY="0.5" oX="0" oY="0" oW="207" oH="207"/>
+    <sprite n="icon_fairy_big.png" x="2" y="697" w="207" h="207" pX="0.5" pY="0.5" oX="0" oY="0" oW="207" oH="207"/>
+    <sprite n="icon_lava_bubble_big.png" x="211" y="725" w="205" h="205" pX="0.5" pY="0.5" oX="0" oY="1" oW="207" oH="207"/>
+    <sprite n="icon_ten_bubbles_big.png" x="524" y="533" w="195" h="218" pX="0.5" pY="0.5"/>
+    <sprite n="icon_transform_trick_big.png" x="721" y="541" w="205" h="205" pX="0.5" pY="0.5" oX="1" oY="1" oW="207" oH="207"/>
+    <sprite n="light.png" x="943" y="2" w="60" h="318" pX="0.5" pY="0.5"/>
+    <sprite n="lineBlastTutorial.png" x="832" y="422" w="63" h="17" pX="0.5" pY="0.5" oX="0" oY="0" oW="63" oH="17"/>
+    <sprite n="losegame.png" x="613" y="315" w="217" h="216" pX="0.5" pY="0.5" oX="0" oY="0" oW="217" oH="216"/>
+    <sprite n="morrisBalloon.png" x="721" y="748" w="194" h="198" pX="0.5" pY="0.5" oX="3" oY="1" oW="200" oH="200"/>
+    <sprite n="morrisLose.png" x="645" y="2" w="187" h="311" pX="0.5" pY="0.5" oX="0" oY="0" oW="187" oH="311"/>
+    <sprite n="rateus.png" x="2" y="2" w="383" h="273" pX="0.5" pY="0.5"/>
+    <sprite n="transactionFail.png" x="387" y="260" w="224" h="254" pX="0.5" pY="0.5" oX="1" oY="1" oW="227" oH="256"/>
+    <sprite n="transactionOk.png" x="387" y="2" w="256" h="256" pX="0.5" pY="0.5"/>
+    <sprite n="white_pixel.png" x="613" y="260" w="3" h="3" pX="0.5" pY="0.5"/>
+</TextureAtlas>
