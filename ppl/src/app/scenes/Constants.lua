@@ -7,13 +7,14 @@ BUBBLE_RADIUS = 32 -- 球的半径  65
 -- INIT_LINE			(4)
 
 
-BUBBLE_SPEED		= 10 -- 球速
+BUBBLE_SPEED		= 20 -- 球速
 READY_BUBBLE_POS	= cc.p(display.cx, 128)  -- 发射球的初始位置
 WAIT_BUBBLE_POS     = cc.p(display.cx + 100, 100)  -- 等待球的初始位置
+COLLISON_OFFSET     = 5 --碰撞检测比真实半径小的数量
 ---------------------------------------------------------------------
 MAX_WAIT_BUBBLE		= 1  -- 最多有几个等待发射球（暂时只能为1）
 PI                  = math.pi
-MAX_RANDOM          = 1 --最大随机数，这个值由外部配置文件重载
+MAX_RANDOM          = 1 --最大随机数，这个值由外部配置文件重载（MAX_RANDOM最大为5 即：MAX_COLOR-1）
 CUR_RANDOM          = 0 -- 当前随机数，用于加到所有球的颜色值上
 MAX_ROWS			= 11 --这个值由外部配置文件重载
 MAX_COLS			= 10 --这个值由外部配置文件重载

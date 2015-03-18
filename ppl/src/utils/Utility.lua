@@ -138,13 +138,12 @@ function isCollision(m_curReady,m_listBubble)
 		table.insert(temp,v)
 	end
 
-	local collisonOffset = 10
 	local len = table.nums(temp)
 	for i = len, 1, -1 do
 		local pBubble = temp[i]
 		local pos1 = cc.p(pBubble:getPositionX(),pBubble:getPositionY())
 		local pos2 = cc.p(m_curReady:getPositionX(),m_curReady:getPositionY())
-		if pBubble and isCollisionWithBubble(pos1, BUBBLE_RADIUS - collisonOffset, pos2, BUBBLE_RADIUS - collisonOffset) then
+		if pBubble and isCollisionWithBubble(pos1, BUBBLE_RADIUS - COLLISON_OFFSET, pos2, BUBBLE_RADIUS - COLLISON_OFFSET) then
 			bRet = true
 			return bRet,{m_nRow = pBubble:getRow(),m_nCol = pBubble:getCol() }
 		end
@@ -179,7 +178,6 @@ end
 function GetRowColByPos( nPosX, nPosY)
 	local nRow, nCol
 	--需要四舍五入
-print("display.size.height",display.size.height)
 	nPosY = display.size.height - nPosY 
 
 	nRow = ( nPosY - BUBBLE_RADIUS )/( 2 *BUBBLE_RADIUS *math.sin ( PI/3 ) ) +0.5

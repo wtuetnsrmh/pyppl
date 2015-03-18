@@ -15,22 +15,20 @@
 local json = require("framework.json")
 local BublleSprite = import(".BublleSprite")
 local BublleBasic = import("..modle.BublleBasic")
+local GameLayer = import(".GameLayer")
 
 local PlayScene = class("PlayScene", function()
     return display.newPhysicsScene("PlayScene")
     -- return display.newScene("PlayScene")
 end)
 
-function PlayScene:ctor()
-	self.layer = display.newLayer()
-    self.layer:addNodeEventListener(cc.NODE_TOUCH_EVENT, function(event)
-        -- print("event.name",event.name)
-        return self:onTouch(event)
-    end)
-    self:addChild(self.layer)
+function PlayScene:ctor(params)
+    display.newSprite("bg.jpg"):pos(display.cx,display.cy):addTo(self)
+
+	self.gameLayer = GameLayer.new({playScene = self,level = params.level}):pos(10,0)
+    self:addChild(self.gameLayer)
 
     self:initData()
-    self:initUI()
 
     self.world = self:getPhysicsWorld()
     self.world:setGravity(cc.p(0, GRAVITY))
@@ -48,52 +46,24 @@ function PlayScene:ctor()
 end
 
 function PlayScene:initData()
-    self.m_board = {} --整个面板所有能放的泡泡 -- pairs
-
     self.m_wait = nil           -- 正在等待发射的泡泡
-
     self.m_curReady = nil                       -- 当前正要发射的泡泡
-
-    self.m_listBubble = {}       -- 当前图上所有的球 -- pairs
-
-    self.m_dRadian  = 0                   -- 范围为30度到150;默认为90度， 竖直方向
-    self.m_nRotation  = 0                     -- 发射器角度改变方向，也是玩的反弹角度
-
-    self.m_nWidth = 0        -- 游戏界面的宽度和高度
-    self.m_nHeight = 0
-
-    self.m_nScore  = 0         -- 游戏所得到的分数
-
-    self.m_nGoldenBubbleCount = 0 -- 特殊球金球
-    self.m_nSliveryBubbleCount = 0 -- 特殊球银球
-
     self.m_state = GameState.GS_START  -- 当前游戏状态
 
-    self.m_real = nil  -- 真实坐标
+    self:initReadyBubble()
+    self:initWaitBubble()
 
-    local jsonStr = cc.HelperFunc:getFileData(string.format("level-data/%03d.json",1))
-    local jsonObj = json.decode(jsonStr)
-    -- dump(jsonObj.level.graph)
-    -- print("jsonObj.level.graph",#jsonObj.level.graph)
-    self.graph = jsonObj.level.graph
-    -- 重载当前关卡的最大行列数(暂时未用)
-    MAX_ROWS = tonumber(jsonObj.level.maxRow)
-    MAX_COLS = tonumber(jsonObj.level.maxCol)
-    MAX_RANDOM = tonumber(jsonObj.level.maxRandomColors)
+    -- self:initDebugUI()
 end
 
--- 测试用的格子
-function PlayScene:initTestBar()
-    for i = 0,MAX_COLS-1 do
-        for j = 0,MAX_ROWS do
-            if not (j%2 == 1 and i == MAX_COLS-1) then
-                local bar = display.newSprite("#test_bar.png")
-                local rcLable =cc.ui.UILabel.new({text = j.."_"..i,size = 30 }):align(display.CENTER, 32, 32):addTo(bar)
-                local tempPoint = getPosByRowAndCol(j,i)
-                bar:pos(tempPoint.x,tempPoint.y):addTo(self.layer)
-            end
-        end
-    end
+function PlayScene:onEnter()
+    self.touchLayer = display.newLayer():addTo(self)
+    self:setEnable()
+    self.touchLayer:addNodeEventListener(cc.NODE_TOUCH_EVENT, function(event)
+        print("event.name",event.name)
+        return self:onTouch(event)
+    end)
+
 end
 
 function PlayScene:initDebugUI()
@@ -108,7 +78,7 @@ function PlayScene:initDebugUI()
             elseif event == "ended" then
                 local s = editbox:getText()
                 local sArr = string.split(s,",")
-                print(sArr[1] ,sArr[2], self.m_board[sArr[1] .. sArr[2] ])
+                print(sArr[1] ,sArr[2], self.gameLayer.m_board[sArr[1] .. sArr[2] ])
             elseif event == "return" then
                 -- self:onEditBoxReturn(editbox)
             elseif event == "changed" then
@@ -119,323 +89,11 @@ function PlayScene:initDebugUI()
         end
     })
     editBox2:setReturnType(cc.KEYBOARD_RETURNTYPE_SEND)
-    self.layer:addChild(editBox2)
+    self:addChild(editBox2)
 
     PYButton("#PlayButton.png","test",function(event)
         
-    end):addTo(self.layer)
-end
-
-function PlayScene:initUI()
-    display.newSprite("bg.jpg"):pos(display.cx,display.cy):addTo(self.layer)
-    
-    self:initBoard()
-    self:initTestBar()
-    self:initDebugUI()
-    self:initReadyBubble()
-    self:initWaitBubble()
-end
-
-function PlayScene:hasBall(row, col)
-    if self.m_board[ row .. col ] then return true end
-    return false
-end
-
-function PlayScene:setEnable()
-    self.layer:setTouchEnabled(true)
-end
-
-function PlayScene:setDisableEnable()
-    self.layer:setTouchEnabled(false)
-end
-
--- 将wait状态的球换成ready状态
-function PlayScene:changeWaitToReady()
-    self.m_curReady = self.m_wait
-    self.m_curReady:pos(READY_BUBBLE_POS.x,READY_BUBBLE_POS.y)
-
-    self.m_wait = randomBubble()
-    self.m_wait:pos(WAIT_BUBBLE_POS.x,WAIT_BUBBLE_POS.y):addTo(self.layer)
-end
-
---掉落泡泡
-function PlayScene:downBubbleAction(pBubble)
-    local offY = -100
-
-    local pos = cc.p(pBubble:getPositionX(),pBubble:getPositionY())
-    pBubble:runAction(
-            cc.Sequence:create(
-                cc.MoveTo:create((pos.y - offY) / 600.0, cc.p(pos.x, offY)),
-                cc.CallFunc:create(function()
-                    if pBubble then
-                        pBubble:removeSelf()
-                    end
-                end)
-            )
-        )
-end
-
---执行可以掉落的泡泡 fallBubbleList为iparis的RowCol结构表
-function PlayScene:FallBubble(fallBubbleList)
-    for _,rc in pairs(fallBubbleList) do
-        local pBubble = self.m_board[ rc.m_nRow .. rc.m_nCol ]
-        if pBubble then
-            self:downBubbleAction(pBubble)
-            self.m_board[ rc.m_nRow .. rc.m_nCol ] = nil
-            self.m_listBubble[rc.m_nRow .. rc.m_nCol] = nil
-        end
-    end
-
-end
-
-function PlayScene:callbackRemoveBubble(obj)
-    if obj then
-        obj:removeSelf()
-    end
-end
-
--- 检查掉落球 --return ipairs
-function PlayScene:checkFallBubble()
-    local LinkBubbleList = {}
-    for i = 0,MAX_COLS - 1 do
-        if self.m_board[0 .. i] then
-            table.insert(LinkBubbleList, { m_nRow = 0, m_nCol = i })
-        end
-    end
-    if table.nums(LinkBubbleList) == 0 then
-        return LinkBubbleList
-    end
-
-    local index = 1
-    repeat
-        local itCur = LinkBubbleList[index]
-        local vecRowCol = {}
-        GetAround(itCur.m_nRow,itCur.m_nCol,vecRowCol)
-
-        for _,rc in ipairs(vecRowCol) do
-            local pBubble = self.m_board[rc.m_nRow .. rc.m_nCol]
-            if pBubble then
-                local pos = { m_nRow = rc.m_nRow, m_nCol = rc.m_nCol }
-                local k = table.RCkeyof(LinkBubbleList,pos)
-                if not k then
-                    table.insert(LinkBubbleList,pos)
-                end
-            end
-        end
-
-        index = index + 1
-
-    until (index > table.nums(LinkBubbleList))
-
-    local NoLinkBubblelist = {} -- ipairs
-    for _,bublle in pairs(self.m_listBubble) do
-        local findRowCol = { m_nRow = bublle:getRow(), m_nCol = bublle:getCol() }
-        local k = table.RCkeyof(LinkBubbleList, findRowCol)
-        if not k then
-            table.insert(NoLinkBubblelist, findRowCol)
-        end
-    end
-
-    return NoLinkBubblelist;
-end
-
---清除一个球的表现动作
-function PlayScene:removeBubbleAction(pBubble)
-    pBubble:runAction(
-        cc.Sequence:create(
-            cc.DelayTime:create(0.2),
-            cc.FadeOut:create(0.5),
-            cc.CallFunc:create(function()
-                if pBubble then
-                    pBubble:removeSelf()
-                end
-            end)
-        )
-    );
-end
-
-
---清除球的集合
-function PlayScene:clearBubble(bubbleList)
-    print("#clearBubble num = ",table.nums(bubbleList))
-    local nRow, nCol
-    for _,rowCol in pairs(bubbleList) do
-        nRow = rowCol.m_nRow
-        nCol = rowCol.m_nCol
-        local obj = self.m_board[nRow .. nCol]
-        if obj then
-            self:removeBubbleAction(obj)
-            self.m_board[nRow .. nCol] = nil
-        end
-
-        if self.m_listBubble[ nRow .. nCol ] then
-            self.m_listBubble[ nRow .. nCol ] = nil
-        end
-    end
-
-end
-
--- 根据调整过后的球的位置和颜色类型， 作出相应的处理，如：金银色特殊泡泡的爆炸，球的下落等
-function PlayScene:execClearBubble(pReadyBubble)
-    local clearBubbleList = {}
-    clearBubbleList = self:findClearBubble(pReadyBubble)
-    if clearBubbleList then
-        self:clearBubble(clearBubbleList)
-    end
-end
-
--- 查找需要清除的球的集合 -- pairs
-function PlayScene:findClearBubble(pReadyBubble)
-    local clearRowCollist = {}
-    if not pReadyBubble then
-        return clearRowCollist
-    end
-
-    if (pReadyBubble:getType() > 0) then
-    -- 特殊球，特殊处理
-        clearRowCollist = self:findGoldenBubble(pReadyBubble)
-    else
-        clearRowCollist = self:findSameBubble(pReadyBubble)
-        if table.nums(clearRowCollist) < REMOVE_COUNT then
-            print("没有超过3个同色")
-            clearRowCollist = nil
-        end
-    end
-    
-    return clearRowCollist
-end
-
--- 找到同样的球，并返回找到的同样的球的集合 -- pairs
-function PlayScene:findSameBubble(pReadyBubble)
-    local samelist = {}
-    local nColor= pReadyBubble:getColor()
-    local nRow = pReadyBubble:getRow()
-    local nCol = pReadyBubble:getCol()
-    -- samelist[nRow .. nCol] = {m_nRow = nRow, m_nCol = nCol}
-    table.insert(samelist,{m_nRow = nRow, m_nCol = nCol})
-
-    local index = 1
-    repeat
-        local itCur = samelist[index]
-        local vecRowCol = {}
-        GetAround(itCur.m_nRow, itCur.m_nCol, vecRowCol)
-        print("#vecRowCol",table.nums(vecRowCol))
-        -- dump(vecRowCol)
-        for i,rowCol in pairs(vecRowCol) do
-           local pCurBubble = self.m_board[ rowCol.m_nRow .. rowCol.m_nCol ]
-
-           if pCurBubble and pCurBubble:getColor() == tonumber(nColor) then
-                print("nColor , rowCol.m_nRow , rowCol.m_nCol",nColor,rowCol.m_nRow , rowCol.m_nCol)
-                local rc = {m_nRow = rowCol.m_nRow, m_nCol = rowCol.m_nCol}
-                -- samelist[ rowCol.m_nRow .. rowCol.m_nCol ] = rc
-                if not table.RCkeyof(samelist,rc) then
-                    table.insert(samelist,rc)
-                    print("#samelist",table.nums(samelist))
-                end
-                
-           end
-        end
-
-        index = index + 1
-    until (index > table.nums(samelist))
-    
-    return samelist
-end
-
---找出所给数组中与目标点最近的空位 row,col
-function PlayScene:findNearRowCol(vecRowCol,curPos)
-    local minDis = 10000
-    local row,col
-    for _,rc in ipairs(vecRowCol) do
-        if not self.m_board[rc.m_nRow .. rc.m_nCol] then
-            if not row then
-                -- init
-                row, col = rc.m_nRow, rc.m_nCol
-            end
-            local dis = cc.pGetDistance( curPos, getPosByRowAndCol(rc.m_nRow,rc.m_nCol) )
-            print("dis",dis,rc.m_nRow,rc.m_nCol)
-            if dis < minDis then
-                minDis = dis
-                row, col = rc.m_nRow, rc.m_nCol
-            end
-        end
-    end
-    return row,col
-end
-
-function PlayScene:adjustBubblePosition(rowCol)
-    local curPos = cc.p(self.m_curReady:getPositionX(),self.m_curReady:getPositionY())
-    print(curPos.x, curPos.y)
-    local row,col = GetRowColByPos(curPos.x, curPos.y)
-    if self.m_board[row .. col] then
-        print("被撞的球rc",rowCol.m_nRow,rowCol.m_nCol)
-        print("已经存在泡泡",row,col)
-         -- 已经存在泡泡，则找出被撞泡泡四周六个泡中最近的坐标
-        local vecRowCol = {}
-        GetAround(row,col,vecRowCol)
-        row,col = self:findNearRowCol(vecRowCol,curPos)
-    end
-
-    local adjustPos = getPosByRowAndCol(row, col)
-    self.m_curReady:pos(adjustPos.x,adjustPos.y)
-    print(" new row, col",row, col)
-    self.m_curReady:setRowColIndex(row, col)
-
-    self.m_board[row .. col] = self.m_curReady
-    self.m_listBubble[row .. col] = self.m_curReady
-    -- table.insert(self.m_listBubble,self.m_curReady)
-end
-
-function PlayScene:initBoard()
-    for i,bublleData in ipairs(self.graph) do 
-        local bublle = BublleSprite.new(BublleBasic.new(bublleData))
-        local tempPoint = getPosByRowAndCol(bublleData.row,bublleData.col)
-        bublle:pos(tempPoint.x,tempPoint.y):addTo(self.layer)
-        -- self.m_board[bublleData.row .. bublleData.col] = self.m_board[bublleData.row .. bublleData.col] or {}
-        self.m_board[bublleData.row .. bublleData.col] = bublle
-
-        self.m_listBubble[bublleData.row .. bublleData.col] = bublle
-        -- table.insert(self.m_listBubble,bublle)
-    end
-
-end
-
-function PlayScene:initReadyBubble()
-    self.m_curReady = randomBubble()
-    self.m_curReady:pos(READY_BUBBLE_POS.x,READY_BUBBLE_POS.y):addTo(self.layer)
-end
-
-function PlayScene:initWaitBubble()
-    self.m_wait = randomBubble()
-    self.m_wait:pos(WAIT_BUBBLE_POS.x,WAIT_BUBBLE_POS.y):addTo(self.layer)
-end
-
-function PlayScene:clear()
-    self.m_board = nil
-    self.m_listBubble = nil
-end
-
--- function PlayScene:createBublle(x, y)
---     -- add sprite to scene
---     local coinSprite = display.newSprite("#bublle02.png")
---     self:addChild(coinSprite)
---     local coinBody = cc.PhysicsBody:createCircle(COIN_RADIUS,
---         cc.PhysicsMaterial(COIN_RADIUS, COIN_FRICTION, COIN_ELASTICITY))
---     coinBody:setMass(1000)
---     coinBody:setRotationEnable(true)
---     coinSprite:setPhysicsBody(coinBody)
---     coinSprite:setPosition(x, y)
--- end
-
-function PlayScene:touchEnded(event)
-    self.m_state = GameState.GS_FLY
-
-    local pos = cc.p(event.x,event.y)
-    self.m_real = cc.pNormalize(cc.pSub(pos, cc.p(self.m_curReady:getPositionX(),self.m_curReady:getPositionY())))
-
-    self:setDisableEnable()
-    self:scheduleUpdate()
-    -- self:onEnterFrame()
+    end):addTo(self)
 end
 
 function PlayScene:onTouch(event)
@@ -451,36 +109,72 @@ function PlayScene:onTouch(event)
     return true
 end
 
-function PlayScene:onEnter()
-    self:addNodeEventListener(cc.NODE_ENTER_FRAME_EVENT, handler(self, self.onEnterFrame))
-    self:setEnable()
+function PlayScene:touchEnded(event)
+    self.m_state = GameState.GS_FLY
+
+    local pos = cc.p(event.x,event.y)
+    self.gameLayer.m_real = cc.pNormalize(cc.pSub(pos, cc.p(self.m_curReady:getPositionX(),self.m_curReady:getPositionY())))
+    self.gameLayer:setCurReady(self.m_curReady)
+    self.gameLayer:update()
+
+    self:setDisableEnable()
+    self:changeWaitToReady()
 end
 
-function PlayScene:onEnterFrame(dt)
-    if isCollisionWithBorder(self.m_curReady) then
-        self.m_real.x = -self.m_real.x
-    end
+function PlayScene:setEnable()
+    self.touchLayer:setTouchEnabled(true)
+end
+
+function PlayScene:setDisableEnable()
+    self.touchLayer:setTouchEnabled(false)
+end
+
+-- 将wait状态的球换成ready状态
+function PlayScene:changeWaitToReady()
+    self.m_curReady:setVisible(false)
+    local action = cc.Spawn:create(
+        cc.MoveTo:create(0.5, cc.p(READY_BUBBLE_POS.x,READY_BUBBLE_POS.y)),
+        cc.ScaleTo:create( 0.5,  1))
+
+    self.m_wait:runAction(transition.sequence({action,cc.CallFunc:create(function()
+            self.m_curReady = self.m_wait
+            self.m_curReady:setVisible(true)
+            self.m_curReady:pos(READY_BUBBLE_POS.x,READY_BUBBLE_POS.y)
+
+            self.m_wait = randomBubble()
+            self.m_wait:scale(0.8)
+            self.m_wait:pos(WAIT_BUBBLE_POS.x,WAIT_BUBBLE_POS.y):addTo(self)
+        end)})
+    )
     
-    local pos = cc.p(self.m_curReady:getPositionX(),self.m_curReady:getPositionY())
-    self.m_curReady:pos(pos.x + self.m_real.x * BUBBLE_SPEED, pos.y + self.m_real.y * BUBBLE_SPEED)
-    local collFlag,rc = isCollision(self.m_curReady, self.m_listBubble)
-    if collFlag then
-        self.m_real = cc.p(0,0)
-        self:adjustBubblePosition(rc)
-
-        self:execClearBubble(self.m_curReady)
-
-        local fallList = self:checkFallBubble()
-        self:FallBubble(fallList)
-
-        self:unscheduleUpdate()
-        self:changeWaitToReady()
-        self:setEnable()
-    end
 end
 
+function PlayScene:initReadyBubble()
+    self.m_curReady = randomBubble()
+    self.m_curReady:pos(READY_BUBBLE_POS.x,READY_BUBBLE_POS.y):addTo(self)
+end
+
+function PlayScene:initWaitBubble()
+    self.m_wait = randomBubble()
+    self.m_wait:scale(0.8)
+    self.m_wait:pos(WAIT_BUBBLE_POS.x,WAIT_BUBBLE_POS.y):addTo(self)
+end
 
 function PlayScene:onExit()
 end
 
+
+-- function PlayScene:createBublle(x, y)
+--     -- add sprite to scene
+--     local coinSprite = display.newSprite("#bublle02.png")
+--     self:addChild(coinSprite)
+--     local coinBody = cc.PhysicsBody:createCircle(COIN_RADIUS,
+--         cc.PhysicsMaterial(COIN_RADIUS, COIN_FRICTION, COIN_ELASTICITY))
+--     coinBody:setMass(1000)
+--     coinBody:setRotationEnable(true)
+--     coinSprite:setPhysicsBody(coinBody)
+--     coinSprite:setPosition(x, y)
+-- end
+
 return PlayScene
+

@@ -17,7 +17,7 @@ function WelcomeScene:ctor()
 			}))
 		:onButtonClicked(function(event)
 			-- switchScene("SelectScene")
-			switchScene("PlayScene")
+			switchScene("PlayScene",{level = 1})
 		end)
 		:align(display.CENTER,display.cx,display.cy):addTo(self)
 
