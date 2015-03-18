@@ -342,26 +342,43 @@ function PlayScene:findSameBubble(pReadyBubble)
     return samelist
 end
 
+--找出所给数组中与目标点最近的空位 row,col
+function PlayScene:findNearRowCol(vecRowCol,curPos)
+    local minDis = 10000
+    local row,col
+    for _,rc in ipairs(vecRowCol) do
+        if not self.m_board[rc.m_nRow .. rc.m_nCol] then
+            if not row then
+                -- init
+                row, col = rc.m_nRow, rc.m_nCol
+            end
+            local dis = cc.pGetDistance( curPos, getPosByRowAndCol(rc.m_nRow,rc.m_nCol) )
+            print("dis",dis,rc.m_nRow,rc.m_nCol)
+            if dis < minDis then
+                minDis = dis
+                row, col = rc.m_nRow, rc.m_nCol
+            end
+        end
+    end
+    return row,col
+end
+
 function PlayScene:adjustBubblePosition(rowCol)
     local curPos = cc.p(self.m_curReady:getPositionX(),self.m_curReady:getPositionY())
     print(curPos.x, curPos.y)
     local row,col = GetRowColByPos(curPos.x, curPos.y)
-    local row1,col1 = GetRowColByPos(410.47814941406, 585.22210693359)
-    print("test",row1,col1)
     if self.m_board[row .. col] then
         print("被撞的球rc",rowCol.m_nRow,rowCol.m_nCol)
         print("已经存在泡泡",row,col)
-         -- 已经存在泡泡，则找出被撞泡泡四周六个泡中离
+         -- 已经存在泡泡，则找出被撞泡泡四周六个泡中最近的坐标
         local vecRowCol = {}
         GetAround(row,col,vecRowCol)
-        for _,rc in ipairs(vecRowCol) do
-            
-        end
+        row,col = self:findNearRowCol(vecRowCol,curPos)
     end
 
     local adjustPos = getPosByRowAndCol(row, col)
     self.m_curReady:pos(adjustPos.x,adjustPos.y)
-    print("row, col",row, col)
+    print(" new row, col",row, col)
     self.m_curReady:setRowColIndex(row, col)
 
     self.m_board[row .. col] = self.m_curReady
