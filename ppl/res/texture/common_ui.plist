@@ -72,7 +72,7 @@
             <key>bublle01.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{136,331},{65,65}}</string>
+                <string>{{2,398},{65,65}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -85,7 +85,7 @@
             <key>bublle02.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{69,281},{65,65}}</string>
+                <string>{{136,331},{65,65}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -98,7 +98,7 @@
             <key>bublle03.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,281},{65,65}}</string>
+                <string>{{69,281},{65,65}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -111,7 +111,7 @@
             <key>bublle04.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{136,264},{65,65}}</string>
+                <string>{{2,281},{65,65}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -122,6 +122,19 @@
                 <string>{65,65}</string>
             </dict>
             <key>bublle05.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{136,264},{65,65}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{65,65}}</string>
+                <key>sourceSize</key>
+                <string>{65,65}</string>
+            </dict>
+            <key>bublle06.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{69,214},{65,65}}</string>
@@ -170,7 +183,7 @@
             <key>size</key>
             <string>{256,512}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:481774657d758599c535464d3315b987:1/1$</string>
+            <string>$TexturePacker:SmartUpdate:e34da3bb49074496df3bc5d8ea7f8dac:1/1$</string>
             <key>textureFileName</key>
             <string>common_ui.pvr.ccz</string>
         </dict>

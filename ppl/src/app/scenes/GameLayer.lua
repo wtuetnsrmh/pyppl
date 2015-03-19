@@ -55,10 +55,14 @@ function GameLayer:onEnterFrame(dt)
 
     -- 如果球出了屏幕顶部太多则不做检测
     if (self.m_curReady:getPositionY() + self:getPositionY()) > (display.height + 40) then
+
     	self.m_real = cc.p(0,0)
     	self:unscheduleUpdate()
+        self.m_curReady:removeSelf()
         -- 激活点击发射
         self.playScene:setEnable()
+        print("如果球出了屏幕顶部太多则不做检测")
+        return
     end
 
     local collFlag,rc = isCollision(self.m_curReady, self.m_listBubble)
@@ -86,9 +90,9 @@ end
 
 function GameLayer:setCurReady(curReady)
 	local gPos = cc.p(curReady:getPositionX(),curReady:getPositionY())
-	dump(gPos)
+	-- dump(gPos)
 	local lPos = self:convertToNodeSpace(gPos)
-	dump(lPos)
+	-- dump(lPos)
 	self.m_curReady = BublleSprite.new(curReady:getModel())
 	self.m_curReady:pos(lPos.x,lPos.y):addTo(self)
 end
@@ -110,7 +114,7 @@ function GameLayer:initData()
 
     self.m_real = nil  -- 真实坐标
 
-    local jsonStr = cc.HelperFunc:getFileData(string.format("level-data/%03d.json",self.level))
+    local jsonStr = cc.HelperFunc:getFileData(string.format("mapData/%s.json",self.level))--%03d.json
     local jsonObj = json.decode(jsonStr)
     -- dump(jsonObj.level.graph)
     -- print("jsonObj.level.graph",#jsonObj.level.graph)
@@ -138,7 +142,7 @@ end
 
 function GameLayer:initUI()
     self:initBoard()
-    self:initTestBar()
+    -- self:initTestBar()
 end
 
 function GameLayer:hasBall(row, col)
@@ -186,13 +190,19 @@ end
 -- 检查掉落球 --return ipairs
 function GameLayer:checkFallBubble()
     local LinkBubbleList = {}
+    local NoLinkBubblelist = {} -- ipairs
+
     for i = 0,MAX_COLS - 1 do
         if self.m_board[0 .. i] then
             table.insert(LinkBubbleList, { m_nRow = 0, m_nCol = i })
         end
     end
     if table.nums(LinkBubbleList) == 0 then
-        return LinkBubbleList
+        -- 表示最顶都没有球了
+        for _,bubble in pairs(self.m_listBubble) do
+            table.insert(NoLinkBubblelist,{ m_nRow = bubble:getRow(), m_nCol = bubble:getCol() })
+        end
+        return NoLinkBubblelist
     end
 
     local index = 1
@@ -216,7 +226,7 @@ function GameLayer:checkFallBubble()
 
     until (index > table.nums(LinkBubbleList))
 
-    local NoLinkBubblelist = {} -- ipairs
+    
     for _,bublle in pairs(self.m_listBubble) do
         local findRowCol = { m_nRow = bublle:getRow(), m_nCol = bublle:getCol() }
         local k = table.RCkeyof(LinkBubbleList, findRowCol)

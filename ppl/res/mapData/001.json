@@ -1,0 +1,270 @@
+{
+    "id": 1,
+    "level": {
+        "graph": [
+            {
+                "color": "2",
+                "col": "4",
+                "type": "0",
+                "attributes": {},
+                "row": "0"
+            },
+            {
+                "color": "1",
+                "col": "9",
+                "type": "0",
+                "attributes": {},
+                "row": "1"
+            },
+            {
+                "color": "3",
+                "col": "2",
+                "type": "0",
+                "attributes": {},
+                "row": "1"
+            },
+            {
+                "color": "1",
+                "col": "3",
+                "type": "0",
+                "attributes": {},
+                "row": "1"
+            },
+            {
+                "color": "1",
+                "col": "4",
+                "type": "0",
+                "attributes": {},
+                "row": "3"
+            },
+            {
+                "color": "1",
+                "col": "3",
+                "type": "0",
+                "attributes": {},
+                "row": "0"
+            },
+            {
+                "color": "2",
+                "col": "3",
+                "type": "0",
+                "attributes": {},
+                "row": "2"
+            },
+            {
+                "color": "3",
+                "col": "0",
+                "type": "0",
+                "attributes": {},
+                "row": "3"
+            },
+            {
+                "color": "1",
+                "col": "7",
+                "type": "0",
+                "attributes": {},
+                "row": "3"
+            },
+            {
+                "color": "1",
+                "col": "5",
+                "type": "0",
+                "attributes": {},
+                "row": "2"
+            },
+            {
+                "color": "1",
+                "col": "2",
+                "type": "0",
+                "attributes": {},
+                "row": "2"
+            },
+            {
+                "color": "3",
+                "col": "7",
+                "type": "0",
+                "attributes": {},
+                "row": "2"
+            },
+            {
+                "color": "2",
+                "col": "7",
+                "type": "0",
+                "attributes": {},
+                "row": "0"
+            },
+            {
+                "color": "1",
+                "col": "8",
+                "type": "0",
+                "attributes": {},
+                "row": "2"
+            },
+            {
+                "color": "3",
+                "col": "1",
+                "type": "0",
+                "attributes": {},
+                "row": "2"
+            },
+            {
+                "color": "3",
+                "col": "3",
+                "type": "0",
+                "attributes": {},
+                "row": "3"
+            },
+            {
+                "color": "3",
+                "col": "6",
+                "type": "0",
+                "attributes": {},
+                "row": "3"
+            },
+            {
+                "color": "1",
+                "col": "1",
+                "type": "0",
+                "attributes": {},
+                "row": "3"
+            },
+            {
+                "color": "2",
+                "col": "9",
+                "type": "0",
+                "attributes": {},
+                "row": "2"
+            },
+            {
+                "color": "2",
+                "col": "7",
+                "type": "0",
+                "attributes": {},
+                "row": "1"
+            },
+            {
+                "color": "3",
+                "col": "8",
+                "type": "0",
+                "attributes": {},
+                "row": "1"
+            },
+            {
+                "color": "3",
+                "col": "4",
+                "type": "0",
+                "attributes": {},
+                "row": "2"
+            },
+            {
+                "color": "2",
+                "col": "6",
+                "type": "0",
+                "attributes": {},
+                "row": "2"
+            },
+            {
+                "color": "3",
+                "col": "8",
+                "type": "0",
+                "attributes": {},
+                "row": "0"
+            },
+            {
+                "color": "3",
+                "col": "5",
+                "type": "0",
+                "attributes": {},
+                "row": "1"
+            },
+            {
+                "color": "2",
+                "col": "2",
+                "type": "0",
+                "attributes": {},
+                "row": "3"
+            },
+            {
+                "color": "2",
+                "col": "5",
+                "type": "0",
+                "attributes": {},
+                "row": "3"
+            },
+            {
+                "color": "3",
+                "col": "5",
+                "type": "0",
+                "attributes": {},
+                "row": "0"
+            },
+            {
+                "color": "1",
+                "col": "6",
+                "type": "0",
+                "attributes": {},
+                "row": "0"
+            },
+            {
+                "color": "2",
+                "col": "4",
+                "type": "0",
+                "attributes": {},
+                "row": "1"
+            },
+            {
+                "color": "2",
+                "col": "1",
+                "type": "0",
+                "attributes": {},
+                "row": "0"
+            },
+            {
+                "color": "1",
+                "col": "9",
+                "type": "0",
+                "attributes": {},
+                "row": "0"
+            },
+            {
+                "color": "1",
+                "col": "6",
+                "type": "0",
+                "attributes": {},
+                "row": "1"
+            },
+            {
+                "color": "2",
+                "col": "8",
+                "type": "0",
+                "attributes": {},
+                "row": "3"
+            },
+            {
+                "color": "2",
+                "col": "1",
+                "type": "0",
+                "attributes": {},
+                "row": "1"
+            },
+            {
+                "color": "3",
+                "col": "2",
+                "type": "0",
+                "attributes": {},
+                "row": "0"
+            }
+        ],
+        "maxRow": "4",
+        "maxCol": "11",
+        "maxRandomColors": "3",
+        "mode": "classic",
+        "starlevel": [
+            2400,
+            7000,
+            15000
+        ],
+        "queue": "25"
+    },
+    "version": 20
+}

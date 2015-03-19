@@ -169,9 +169,15 @@ function createBubble(color)
 	return pBubble
 end
 
-function randomBubble()
+function randomCreateColor()
 	local t = randomInt(1, MAX_RANDOM) + CUR_RANDOM
 	local color = t >= MAX_COLOR and (t% MAX_COLOR +1) or t
+	return color
+end
+
+
+function randomBubble()
+	local color = randomCreateColor()
 	local pBubble = BublleSprite.new(BublleBasic.new({color = color}))
 	return pBubble
 end

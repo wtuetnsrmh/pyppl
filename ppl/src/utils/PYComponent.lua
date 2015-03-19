@@ -24,11 +24,10 @@ function PYButton(imageName, name, listener, movable)
     local sprite = display.newSprite(imageName)
 
     if name then
-    	print("name",name)
         local cs = sprite:getContentSize()
         local label = cc.ui.UILabel.new({
             UILabelType = 2,text = name, color = display.COLOR_BLACK})
-        label:setPosition(cs.width / 2, cs.height / 2)
+        label:align(display.CENTER, cs.width / 2, cs.height / 2)
         sprite:addChild(label)
     end
 
@@ -55,9 +54,9 @@ function PYButton(imageName, name, listener, movable)
 
         elseif name == "ended" then
             if touchInSprite then listener() end
-            sprite:setOpacity(255)
+            
         else
-            sprite:setOpacity(255)
+            
         end
     end)
 

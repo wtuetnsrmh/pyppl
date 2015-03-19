@@ -53,6 +53,8 @@ function PlayScene:initData()
     self:initReadyBubble()
     self:initWaitBubble()
 
+    -- 调整球层位置
+    self.gameLayer:adjustLayerPos()
     -- self:initDebugUI()
 end
 
@@ -60,7 +62,6 @@ function PlayScene:onEnter()
     self.touchLayer = display.newLayer():addTo(self)
     self:setEnable()
     self.touchLayer:addNodeEventListener(cc.NODE_TOUCH_EVENT, function(event)
-        print("event.name",event.name)
         return self:onTouch(event)
     end)
 
