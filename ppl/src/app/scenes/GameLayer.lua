@@ -179,9 +179,13 @@ function GameLayer:FallBubble(fallBubbleList)
     for _,rc in pairs(fallBubbleList) do
         local pBubble = self.m_board[ rc.m_nRow .. rc.m_nCol ]
         if pBubble then
-            self:downBubbleAction(pBubble)
+            -- self:downBubbleAction(pBubble)
+            local pos = cc.p(pBubble:getPositionX(),pBubble:getPositionY())
+            local worldP = self:convertToWorldSpace(pos)
+            self.playScene:createBublle(pBubble:getColor(),worldP.x,worldP.y)
             self.m_board[ rc.m_nRow .. rc.m_nCol ] = nil
             self.m_listBubble[rc.m_nRow .. rc.m_nCol] = nil
+            pBubble:removeSelf()
         end
     end
 

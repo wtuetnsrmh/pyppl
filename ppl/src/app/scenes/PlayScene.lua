@@ -36,9 +36,21 @@ function PlayScene:ctor(params)
     local wallBox = display.newNode()
     wallBox:setAnchorPoint(cc.p(0.5, 0.5))
     wallBox:setPhysicsBody(
-        cc.PhysicsBody:createEdgeBox(cc.size(display.width, display.height)))
-    wallBox:setPosition(display.cx, display.cy)
+        cc.PhysicsBody:createEdgeBox(cc.size(display.width, display.height+40)))
+    wallBox:setPosition(display.cx, display.cy+20)
     self:addChild(wallBox)
+
+    -- 底部用于检测是否碰到清除球
+    local removeBarSp = display.newSprite("#test_bar.png")
+    local removeBarBody = cc.PhysicsBody:createBox(cc.size(display.width,100),cc.PhysicsMaterial(33, 0, 0 ))
+    removeBarBody:setDynamic(false)
+    removeBarBody:setTag(0)
+    removeBarSp:setPhysicsBody(removeBarBody)
+    removeBarSp:setPosition(display.cx,50)
+    self:addChild(removeBarSp)
+    removeBarBody:setCategoryBitmask(6);    -- 0110
+    removeBarBody:setContactTestBitmask(2); -- 0010
+    removeBarBody:setCollisionBitmask(8);   -- 1000
 
     -- add debug node
     self:getPhysicsWorld():setDebugDrawMask(
@@ -65,6 +77,39 @@ function PlayScene:onEnter()
         return self:onTouch(event)
     end)
 
+    local function onContactBegin(contact)
+        print("onContactBegin")
+        local aBody = contact:getShapeA():getBody()
+        if aBody:getTag() ~= 0 then
+            print("aBody:getShapes()",aBody:getShapes()[1]:getTag())
+            print("first tag",aBody:getFirstShape():getTag())
+            print("aBody:getTag()",aBody:getTag())
+            aBody:getNode():removeSelf()
+        end
+        local bBody = contact:getShapeB():getBody()
+        if bBody:getTag() ~= 0 then
+            -- bBody:getFirstShape():removeSelf()
+             print("bBody:getShapes",bBody:getShapes()[1]:getTag())
+             print("first tag",bBody:getFirstShape():getTag())
+            print("bBody:getTag()",bBody:getTag())
+            bBody:getNode():removeSelf()
+        end
+        -- return contact:getContactData().normal.y < 0;
+        return true
+      end
+
+    local function onContactLevel(contact)
+        print("onContactLevel")
+        return true
+      end
+
+    local contactListener = cc.EventListenerPhysicsContact:create()
+    contactListener:registerScriptHandler(onContactBegin, cc.Handler.EVENT_PHYSICS_CONTACT_BEGIN)
+    contactListener:registerScriptHandler(onContactBegin, cc.Handler.EVENT_PHYSICS_CONTACT_PRESOLVE)
+    contactListener:registerScriptHandler(onContactBegin, cc.Handler.EVENT_PHYSICS_CONTACT_POSTSOLVE)
+    contactListener:registerScriptHandler(onContactLevel, cc.Handler.EVENT_PHYSICS_CONTACT_SEPERATE)
+    local eventDispatcher = self:getEventDispatcher()
+    eventDispatcher:addEventListenerWithSceneGraphPriority(contactListener, self)
 end
 
 function PlayScene:initDebugUI()
@@ -111,11 +156,16 @@ function PlayScene:onTouch(event)
 end
 
 function PlayScene:touchEnded(event)
+    if self.m_state ~= GameState.GS_START then
+        return
+    end
+
     self.m_state = GameState.GS_FLY
 
     local pos = cc.p(event.x,event.y)
-    self.gameLayer.m_real = cc.pNormalize(cc.pSub(pos, cc.p(self.m_curReady:getPositionX(),self.m_curReady:getPositionY())))
+    self.gameLayer.m_real = cc.pNormalize(cc.pSub(pos, cc.p(READY_BUBBLE_POS.x,READY_BUBBLE_POS.y)))
     self.gameLayer:setCurReady(self.m_curReady)
+
     self.gameLayer:update()
 
     self:setDisableEnable()
@@ -132,14 +182,14 @@ end
 
 -- 将wait状态的球换成ready状态
 function PlayScene:changeWaitToReady()
-    self.m_curReady:setVisible(false)
+    self.m_curReady:removeSelf()
+    self.m_curReady = self.m_wait
     local action = cc.Spawn:create(
         cc.MoveTo:create(0.5, cc.p(READY_BUBBLE_POS.x,READY_BUBBLE_POS.y)),
         cc.ScaleTo:create( 0.5,  1))
 
     self.m_wait:runAction(transition.sequence({action,cc.CallFunc:create(function()
-            self.m_curReady = self.m_wait
-            self.m_curReady:setVisible(true)
+            self.m_state = GameState.GS_START
             self.m_curReady:pos(READY_BUBBLE_POS.x,READY_BUBBLE_POS.y)
 
             self.m_wait = randomBubble()
@@ -164,18 +214,26 @@ end
 function PlayScene:onExit()
 end
 
-
--- function PlayScene:createBublle(x, y)
---     -- add sprite to scene
---     local coinSprite = display.newSprite("#bublle02.png")
---     self:addChild(coinSprite)
---     local coinBody = cc.PhysicsBody:createCircle(COIN_RADIUS,
---         cc.PhysicsMaterial(COIN_RADIUS, COIN_FRICTION, COIN_ELASTICITY))
---     coinBody:setMass(1000)
---     coinBody:setRotationEnable(true)
---     coinSprite:setPhysicsBody(coinBody)
---     coinSprite:setPosition(x, y)
--- end
+function PlayScene:createBublle(color,x, y,rc)
+    -- add sprite to scene
+    local bubble = display.newSprite(string.format("#bublle%02d.png",color))
+    bubble:setTag(3)
+    self:addChild(bubble)
+    local bubbleBody = cc.PhysicsBody:createCircle(33,
+        cc.PhysicsMaterial(33, BUBBLE_FRICTION, BUBBLE_ELASTICITY))
+    bubbleBody:setMass(1000)
+    -- bubbleBody:setGroup(-1)
+    bubbleBody:setCategoryBitmask(3);    -- 0011
+    bubbleBody:setContactTestBitmask(2); -- 0010
+    bubbleBody:setCollisionBitmask(4);   -- 0100
+    bubbleBody:setRotationEnable(true)
+    bubbleBody:setTag(color)
+    bubble:setPhysicsBody(bubbleBody)
+    bubble:setPosition(x, y)
+    -- self:performWithDelay(function()
+    --     bubble:removeFromParent()
+    --     end, 1)
+end
 
 return PlayScene
 
