@@ -61,185 +61,35 @@ unsupport convert for format 8 to format 2
 error:
      cc.SpriteFrameCache:addSpriteFramesWithFile argument #3 is 'cc.Texture2D'; 'string' expected.
 
-[Edit text] content size = (100.000000, 50.000000)
-[LUA-print] name	test
-[Edit text] content size = (100.000000, 50.000000)
-[LUA-print] 340.32568359375	847.73175048828
-[LUA-print] display.size.height	1080
-[LUA-print]  new row, col	4	5
-[LUA-print] #vecRowCol	6
-[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	2	3	5
-[LUA-print] #samelist	2
-[LUA-print] #vecRowCol	6
-[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	2	4	5
-[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	2	2	6
-[LUA-print] #samelist	3
-[LUA-print] #vecRowCol	6
-[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	2	3	5
-[LUA-print] #clearBubble num = 	3
-[LUA-print] 238.69514465332	847.85040283203
-[LUA-print] display.size.height	1080
-[LUA-print]  new row, col	4	3
-[LUA-print] #vecRowCol	6
-[LUA-print] 没有超过3个同色
-[LUA-print] 277.25537109375	843.22869873047
-[LUA-print] display.size.height	1080
-[LUA-print]  new row, col	4	4
-[LUA-print] #vecRowCol	6
-[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	3	3	3
-[LUA-print] #samelist	2
-[LUA-print] #vecRowCol	6
-[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	3	2	4
-[LUA-print] #samelist	3
-[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	3	4	4
-[LUA-print] #vecRowCol	6
-[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	3	3	3
-[LUA-print] #clearBubble num = 	3
-[LUA-print] 258.10620117188	911.40014648438
-[LUA-print] display.size.height	1080
-[LUA-print] 被撞的球rc	2	3
-[LUA-print] 已经存在泡泡	2	3
-[LUA-print] dis	39.454146862389	2	4
-[LUA-print] dis	29.751669491394	3	3
-[LUA-print]  new row, col	3	3
-[LUA-print] #vecRowCol	6
-[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	1	3	4
-[LUA-print] #samelist	2
-[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	1	4	3
-[LUA-print] #samelist	3
-[LUA-print] #vecRowCol	6
-[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	1	3	3
-[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	1	2	5
-[LUA-print] #samelist	4
-[LUA-print] #vecRowCol	6
-[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	1	3	3
-[LUA-print] #vecRowCol	6
-[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	1	3	4
-[LUA-print] #clearBubble num = 	4
-[LUA-print] 415.50744628906	855.88708496094
-[LUA-print] display.size.height	1080
-[LUA-print]  new row, col	3	5
-[LUA-print] #vecRowCol	6
-[LUA-print] 没有超过3个同色
-[LUA-print] 166.56967163086	852.62640380859
-[LUA-print] display.size.height	1080
-[LUA-print]  new row, col	4	2
-[LUA-print] #vecRowCol	6
-[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	2	3	2
-[LUA-print] #samelist	2
-[LUA-print] #vecRowCol	6
-[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	2	4	2
-[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	2	2	3
-[LUA-print] #samelist	3
-[LUA-print] #vecRowCol	6
-[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	2	3	2
-[LUA-print] #clearBubble num = 	3
-[LUA-print] 376.63330078125	847.8076171875
-[LUA-print] display.size.height	1080
-[LUA-print]  new row, col	4	5
-[LUA-print] #vecRowCol	6
-[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	2	3	5
-[LUA-print] #samelist	2
-[LUA-print] #vecRowCol	6
-[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	2	4	5
-[LUA-print] 没有超过3个同色
-[LUA-print] 298.16033935547	955.69384765625
-[LUA-print] display.size.height	1080
-[LUA-print]  new row, col	2	4
-[LUA-print] #vecRowCol	6
-[LUA-print] 没有超过3个同色
-[LUA-print] 302.63067626953	895.86047363281
-[LUA-print] display.size.height	1080
-[LUA-print]  new row, col	3	4
-[LUA-print] #vecRowCol	6
-[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	2	3	5
-[LUA-print] #samelist	2
-[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	2	4	5
-[LUA-print] #samelist	3
-[LUA-print] #vecRowCol	6
-[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	2	3	4
-[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	2	4	5
-[LUA-print] #vecRowCol	6
-[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	2	3	5
-[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	2	3	4
-[LUA-print] #clearBubble num = 	3
-[LUA-print] 302.63067626953	895.86047363281
-[LUA-print] display.size.height	1080
-[LUA-print]  new row, col	3	4
-[LUA-print] #vecRowCol	6
-[LUA-print] 没有超过3个同色
-[LUA-print] 411.62927246094	866.19689941406
-[LUA-print] display.size.height	1080
-[LUA-print]  new row, col	3	5
-[LUA-print] #vecRowCol	6
-[LUA-print] 没有超过3个同色
-[LUA-print] 282.76837158203	863.95782470703
-[LUA-print] display.size.height	1080
-[LUA-print]  new row, col	3	3
-[LUA-print] #vecRowCol	6
-[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	2	3	4
-[LUA-print] #samelist	2
-[LUA-print] #vecRowCol	6
-[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	2	3	3
-[LUA-print] 没有超过3个同色
-[LUA-print] 339.54345703125	847.70977783203
-[LUA-print] display.size.height	1080
-[LUA-print]  new row, col	4	5
-[LUA-print] #vecRowCol	6
-[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	1	3	5
-[LUA-print] #samelist	2
-[LUA-print] #vecRowCol	6
-[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	1	4	5
-[LUA-print] 没有超过3个同色
-[LUA-print] 403.15869140625	846.70477294922
-[LUA-print] display.size.height	1080
-[LUA-print]  new row, col	4	6
-[LUA-print] #vecRowCol	6
-[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	3	3	6
-[LUA-print] #samelist	2
-[LUA-print] #vecRowCol	6
-[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	3	4	6
-[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	3	2	7
-[LUA-print] #samelist	3
-[LUA-print] #vecRowCol	6
-[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	3	3	6
-[LUA-print] #clearBubble num = 	3
-[LUA-print] 470.78063964844	960.66333007812
-[LUA-print] display.size.height	1080
-[LUA-print]  new row, col	2	7
-[LUA-print] #vecRowCol	6
-[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	1	2	8
-[LUA-print] #samelist	2
-[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	1	3	7
-[LUA-print] #samelist	3
-[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	1	1	6
-[LUA-print] #samelist	4
-[LUA-print] #vecRowCol	6
-[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	1	2	7
-[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	1	3	7
-[LUA-print] #vecRowCol	6
-[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	1	2	7
-[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	1	2	8
-[LUA-print] #vecRowCol	6
-[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	1	0	6
-[LUA-print] #samelist	5
-[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	1	2	7
-[LUA-print] #vecRowCol	4
-[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	1	1	6
-[LUA-print] #clearBubble num = 	5
-[LUA-print] 539.95056152344	958.73205566406
-[LUA-print] display.size.height	1080
-[LUA-print]  new row, col	2	8
-[LUA-print] #vecRowCol	6
-[LUA-print] 没有超过3个同色
-[LUA-print] 414.16632080078	855.98706054688
-[LUA-print] display.size.height	1080
-[LUA-print] 被撞的球rc	3	5
-[LUA-print] 已经存在泡泡	3	5
-[LUA-print] dis	42.509560473392	3	6
-[LUA-print] dis	102.23439246835	2	5
-[LUA-print] dis	81.182399206185	2	6
-[LUA-print] dis	29.746135629852	4	6
-[LUA-print]  new row, col	4	6
-[LUA-print] #vecRowCol	6
-[LUA-print] 没有超过3个同色
+can not get file data of src/app/scenes/GameLayer.lua
+[LUA-print] ----------------------------------------
+[LUA-print] LUA ERROR: [string "framework/functions.lua"]:481: module 'app.scenes.GameLayer' not found:
+	no field package.preload['app.scenes.GameLayer']
+	no file './app/scenes/GameLayer.lua'
+	no file '/usr/local/share/lua/5.1/app/scenes/GameLayer.lua'
+	no file '/usr/local/share/lua/5.1/app/scenes/GameLayer/init.lua'
+	no file '/usr/local/lib/lua/5.1/app/scenes/GameLayer.lua'
+	no file '/usr/local/lib/lua/5.1/app/scenes/GameLayer/init.lua'
+	no file '/Users/poyou/bbjxl/project/gitPPL/ppl/src/app/scenes/GameLayer.lua'
+	no file 'src/'
+	no file './app/scenes/GameLayer.so'
+	no file '/usr/local/lib/lua/5.1/app/scenes/GameLayer.so'
+	no file '/usr/local/lib/lua/5.1/loadall.so'
+	no file './app.so'
+	no file '/usr/local/lib/lua/5.1/app.so'
+	no file '/usr/local/lib/lua/5.1/loadall.so'
+
+[LUA-print] 
+stack traceback:
+	[C]: in function 'require'
+	[string "framework/functions.lua"]:481: in function 'import'
+	[string "app/scenes/PlayScene.lua"]:18: in main chunk
+	[C]: in function 'require'
+	[string "utils/UIHelper.lua"]:52: in function 'switchScene'
+	[string "app/scenes/WelcomeScene.lua"]:20: in function '?'
+	[string "framework/cc/components/behavior/EventProtocol.lua"]:59: in function <[string "framework/cc/components/behavior/EventProtocol.lua"]:38>
+	(tail call): ?
+	[string "framework/cc/ui/UIPushButton.lua"]:122: in function <[string "framework/cc/ui/UIPushButton.lua"]:94>
+	(tail call): ?
+	[string "framework/cocos2dx/NodeEx.lua"]:394: in function <[string "framework/cocos2dx/NodeEx.lua"]:348>
+[LUA-print] ----------------------------------------
