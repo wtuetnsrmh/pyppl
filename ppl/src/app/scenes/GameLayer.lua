@@ -114,7 +114,13 @@ function GameLayer:initData()
 
     self.m_real = nil  -- 真实坐标
 
-    local jsonStr = cc.HelperFunc:getFileData(string.format("mapData/%s.json",self.level))--%03d.json
+    local path = string.format("mapData/%s.json",self.level)--%03d.json
+    if device.platform == "windows" then
+        -- win下可写入路径跟MAC不同
+        path = cc.FileUtils:getInstance():getWritablePath() .."res/" .. path
+    end
+    print(path)
+    local jsonStr = cc.HelperFunc:getFileData(path)
     local jsonObj = json.decode(jsonStr)
     -- dump(jsonObj.level.graph)
     -- print("jsonObj.level.graph",#jsonObj.level.graph)

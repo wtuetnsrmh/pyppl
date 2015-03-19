@@ -52,7 +52,13 @@ function EditMapLayer:initData()
 
     self.m_listBubble = {}       -- 当前图上所有的球 -- pairs
     print("map name:",string.format("mapData/%s.json",self.name))
-    local jsonStr = cc.HelperFunc:getFileData(string.format("mapData/%s.json",self.name))
+    local path = string.format("mapData/%s.json",self.name)
+    if device.platform == "windows" then
+        -- win下可写入路径跟MAC不同
+        path = cc.FileUtils:getInstance():getWritablePath() .."res/" .. path
+    end
+
+    local jsonStr = cc.HelperFunc:getFileData(path)
     local jsonObj = json.decode(jsonStr)
     if not jsonObj or table.nums(jsonObj) == 0 then
     	print("地图加载出错，确认输入的名字是否正确")

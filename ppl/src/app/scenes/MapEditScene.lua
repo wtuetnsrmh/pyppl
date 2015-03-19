@@ -62,7 +62,7 @@ function MapEditScene:initCommonUI()
 	local saveBtn = PYButton("#PlayButton.png","保 存",function(event)
 		local saveName = saveNameInput:getText()
 		if string.len(saveName) > 0 then
-			self.EditMapLayer:saveMap(saveName)
+			self.editMapLayer:saveMap(saveName)
 		else
 			print("请输入要保存的文件名")
 		end
@@ -82,30 +82,41 @@ function MapEditScene:initCommonUI()
 	    bar = "SliderBar.png",
 	    button = "SliderButton.png",
 	}
-	cc.ui.UISlider.new(display.LEFT_TO_RIGHT, SLIDER_IMAGES, {scale9 = true, min = 50 })
-        :onSliderValueChanged(function(event)
-           	self.EditMapLayer:scale((event.value/100))
-        end)
-        :setSliderSize(200, 20)
-        :setSliderValue(100)
-        :align(display.LEFT_DOWN, 200,50)
-        :addTo(self,2)
+    self:performWithDelay(function()
+        cc.ui.UISlider.new(display.LEFT_TO_RIGHT, SLIDER_IMAGES, {scale9 = true, min = 50 })
+            :onSliderValueChanged(function(event)
+                self.editMapLayer:scale((event.value/100))
+            end)
+            :setSliderSize(200, 10)
+            :setSliderValue(100)
+            :align(display.BOTTOM_LEFT, 200,20)
+            :addTo(self,2)
+        end, 0.1)
+	
+end
+
+function MapEditScene:perFun()
+    self.editMapLayer:retain()
+    self.editMapLayer:removeSelf()
+    local sv = cc.ui.UIScrollView.new({viewRect = cc.rect(0,150,display.width,display.height - 150 )})
+    sv:addScrollNode(self.editMapLayer)
+        :onScroll(handler(self, self.scrollListener))
+        :setDirection(1) --只支持纵向滑动
+        :addTo(self,3)
+     self.editMapLayer:release()
+    self:initCommonUI()
 end
 
 function MapEditScene:initDebugUI()
 	self.popLayer:removeAllChildren()
 
-	self.EditMapLayer = EditMapLayer.new({mapEditScene = self, op = self.op,maxRow = self.maxRow,maxColor = self.maxColor,
-		starlevel = self.starlevel, queue = self.queue, name = self.name }):pos(10,0)
+	self.editMapLayer = EditMapLayer.new({mapEditScene = self, op = self.op,maxRow = self.maxRow,maxColor = self.maxColor,
+		starlevel = self.starlevel, queue = self.queue, name = self.name }):pos(10,0):addTo(self)
 
-   	cc.ui.UIScrollView.new({viewRect = cc.rect(0,150,display.width,display.height - 150 )})
-        :addScrollNode(self.EditMapLayer)
-        -- :setDirection(cc.ui.UIScrollView.DIRECTION_HORIZONTAL)
-        :onScroll(handler(self, self.scrollListener))
-        :setDirection(1) --只支持纵向滑动
-        :addTo(self,1)
-
-   	self:initCommonUI()
+    self:performWithDelay(function()
+            self:perFun()
+        end, 0.3)
+   
 end
 
 function MapEditScene:scrollListener(event)
@@ -293,7 +304,8 @@ function MapEditScene:popCreateNewMapProLayer()
 end
 
 function MapEditScene:onTouch(event)
-	if event.name ~= "began" then return end
+    print("onTouch")
+	if event.name ~= "began" then return true end
 end
 
 
