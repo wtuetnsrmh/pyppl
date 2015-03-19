@@ -129,6 +129,18 @@ function isCollision(m_curReady,m_listBubble)
 
 	local size = display.size
 	if (m_curReady:getPositionY() > size.height - BUBBLE_RADIUS) then
+		--找出与第一行的哪个相撞
+		for _,bubble in pairs(m_listBubble) do
+			if pBubble and bubble:getRow() == 0 then
+				local pos1 = cc.p(pBubble:getPositionX(),pBubble:getPositionY())
+				local pos2 = cc.p(m_curReady:getPositionX(),m_curReady:getPositionY())
+				if isCollisionWithBubble(pos1, BUBBLE_RADIUS - COLLISON_OFFSET, pos2, BUBBLE_RADIUS - COLLISON_OFFSET) then
+					bRet = true
+					return bRet,{m_nRow = pBubble:getRow(),m_nCol = pBubble:getCol() }
+				end
+			end
+		end
+		print("碰撞到顶部但第一行却没有相撞的球")
 		bRet = true
 		return bRet
 	end
@@ -158,7 +170,8 @@ function createBubble(color)
 end
 
 function randomBubble()
-	local color = (randomInt(1, MAX_RANDOM) + CUR_RANDOM)% MAX_COLOR
+	local t = randomInt(1, MAX_RANDOM) + CUR_RANDOM
+	local color = t >= MAX_COLOR and (t% MAX_COLOR +1) or t
 	local pBubble = BublleSprite.new(BublleBasic.new({color = color}))
 	return pBubble
 end

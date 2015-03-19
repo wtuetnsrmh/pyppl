@@ -374,11 +374,12 @@ function GameLayer:adjustBubblePosition(rowCol)
     local row,col = GetRowColByPos(curPos.x, curPos.y)
      -- print(" old row, col",row, col)
     local vecRowCol = {}
-    GetAround(rowCol.m_nRow,rowCol.m_nCol,vecRowCol)
+    GetAround(row,col,vecRowCol)
     if self.m_board[row .. col] or (not IsValidPos(row,col)) then
+        GetAround(rowCol.m_nRow,rowCol.m_nCol,vecRowCol)
         -- print("被撞的球rc",rowCol.m_nRow,rowCol.m_nCol)
         -- print("已经存在泡泡或无效坐标",row,col)
-        dump(vecRowCol)
+        -- dump(vecRowCol)
          -- 已经存在泡泡，则找出被撞泡泡四周六个泡中最近的坐标
         row,col = self:findNearRowCol(vecRowCol,curPos)
     end
@@ -398,7 +399,8 @@ end
 function GameLayer:initBoard()
     for i,bublleData in ipairs(self.graph) do 
     	-- 随机颜色球不计算
-    	bublleData.color = bublleData.color == MAX_COLOR and MAX_COLOR or (bublleData.color + CUR_RANDOM)% MAX_COLOR
+        local t = (bublleData.color + CUR_RANDOM)
+    	bublleData.color = bublleData.color == MAX_COLOR and MAX_COLOR or (t >= MAX_COLOR and (t % MAX_COLOR)+1 or t) -- +1为了保证不为0
         local bublle = BublleSprite.new(BublleBasic.new(bublleData))
         local tempPoint = getPosByRowAndCol(bublleData.row,bublleData.col)
         bublle:pos(tempPoint.x,tempPoint.y):addTo(self)
