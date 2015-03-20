@@ -40,17 +40,17 @@ function PlayScene:ctor(params)
     wallBox:setPosition(display.cx, display.cy+20)
     self:addChild(wallBox)
 
-    -- 底部用于检测是否碰到清除球
-    local removeBarSp = display.newSprite("#test_bar.png")
-    local removeBarBody = cc.PhysicsBody:createBox(cc.size(display.width,100),cc.PhysicsMaterial(33, 0, 0 ))
-    removeBarBody:setDynamic(false)
-    removeBarBody:setTag(0)
-    removeBarSp:setPhysicsBody(removeBarBody)
-    removeBarSp:setPosition(display.cx,50)
-    self:addChild(removeBarSp)
-    removeBarBody:setCategoryBitmask(6);    -- 0110
-    removeBarBody:setContactTestBitmask(2); -- 0010
-    removeBarBody:setCollisionBitmask(8);   -- 1000
+    -- 底部用于检测是否碰到清除球 TODO
+    -- local removeBarSp = display.newSprite("#test_bar.png")
+    -- local removeBarBody = cc.PhysicsBody:createBox(cc.size(display.width,100),cc.PhysicsMaterial(33, 100, 10 ))
+    -- removeBarBody:setDynamic(false)
+    -- removeBarBody:setTag(0)
+    -- removeBarSp:setPhysicsBody(removeBarBody)
+    -- removeBarSp:setPosition(display.cx,50)
+    -- self:addChild(removeBarSp)
+    -- removeBarBody:setCategoryBitmask(1);    -- 0110
+    -- removeBarBody:setContactTestBitmask(1); -- 0010
+    -- removeBarBody:setCollisionBitmask(1);   -- 1000
 
     -- add debug node
     self:getPhysicsWorld():setDebugDrawMask(
@@ -81,17 +81,10 @@ function PlayScene:onEnter()
         print("onContactBegin")
         local aBody = contact:getShapeA():getBody()
         if aBody:getTag() ~= 0 then
-            print("aBody:getShapes()",aBody:getShapes()[1]:getTag())
-            print("first tag",aBody:getFirstShape():getTag())
-            print("aBody:getTag()",aBody:getTag())
             aBody:getNode():removeSelf()
         end
         local bBody = contact:getShapeB():getBody()
         if bBody:getTag() ~= 0 then
-            -- bBody:getFirstShape():removeSelf()
-             print("bBody:getShapes",bBody:getShapes()[1]:getTag())
-             print("first tag",bBody:getFirstShape():getTag())
-            print("bBody:getTag()",bBody:getTag())
             bBody:getNode():removeSelf()
         end
         -- return contact:getContactData().normal.y < 0;
@@ -105,8 +98,8 @@ function PlayScene:onEnter()
 
     local contactListener = cc.EventListenerPhysicsContact:create()
     contactListener:registerScriptHandler(onContactBegin, cc.Handler.EVENT_PHYSICS_CONTACT_BEGIN)
-    contactListener:registerScriptHandler(onContactBegin, cc.Handler.EVENT_PHYSICS_CONTACT_PRESOLVE)
-    contactListener:registerScriptHandler(onContactBegin, cc.Handler.EVENT_PHYSICS_CONTACT_POSTSOLVE)
+    -- contactListener:registerScriptHandler(onContactBegin, cc.Handler.EVENT_PHYSICS_CONTACT_PRESOLVE)
+    -- contactListener:registerScriptHandler(onContactBegin, cc.Handler.EVENT_PHYSICS_CONTACT_POSTSOLVE)
     contactListener:registerScriptHandler(onContactLevel, cc.Handler.EVENT_PHYSICS_CONTACT_SEPERATE)
     local eventDispatcher = self:getEventDispatcher()
     eventDispatcher:addEventListenerWithSceneGraphPriority(contactListener, self)
@@ -214,18 +207,34 @@ end
 function PlayScene:onExit()
 end
 
+--掉落泡泡
+function PlayScene:downBubbleAction(pos,color)
+    local offPos = self:convertToNodeSpace(cc.p(pos.x,-100))
+    local offY = offPos.y
+    local bubble = display.newSprite(string.format("#bublle%02d.png",color))
+    bubble:pos(pos.x,pos.y):addTo(self)
+    bubble:runAction(
+            cc.Sequence:create(
+                cc.MoveTo:create((pos.y - offY) / 600.0, cc.p(pos.x, offY)),
+                cc.CallFunc:create(function()
+                    bubble:removeSelf()
+                end)
+            )
+        )
+end
+
 function PlayScene:createBublle(color,x, y,rc)
     -- add sprite to scene
     local bubble = display.newSprite(string.format("#bublle%02d.png",color))
-    bubble:setTag(3)
     self:addChild(bubble)
     local bubbleBody = cc.PhysicsBody:createCircle(33,
         cc.PhysicsMaterial(33, BUBBLE_FRICTION, BUBBLE_ELASTICITY))
     bubbleBody:setMass(1000)
     -- bubbleBody:setGroup(-1)
-    bubbleBody:setCategoryBitmask(3);    -- 0011
-    bubbleBody:setContactTestBitmask(2); -- 0010
-    bubbleBody:setCollisionBitmask(4);   -- 0100
+    -- TODO
+    -- bubbleBody:setCategoryBitmask(1);    -- 0011
+    -- bubbleBody:setContactTestBitmask(1); -- 1000
+    -- bubbleBody:setCollisionBitmask(2);   -- 0100
     bubbleBody:setRotationEnable(true)
     bubbleBody:setTag(color)
     bubble:setPhysicsBody(bubbleBody)
@@ -234,6 +243,30 @@ function PlayScene:createBublle(color,x, y,rc)
     --     bubble:removeFromParent()
     --     end, 1)
 end
+
+-- 碰撞多边形
+-- local box = display.newSprite("#bar1.png"):pos(100,300):addTo(self.layer)
+--     -- dump(self.layer:getContentSize())
+--     local temp = {cc.p(54.95,119.85),cc.p(67.2,118.05),cc.p(78.2,90.1),cc.p(32.1,90.15),cc.p(42.6,118)}
+--     local temp3 = {}
+--     for i,v in ipairs(temp) do
+--         temp3[i] = cc.p(v.x + 50,v.y)
+--     end
+--     local boxPhysicsBody = cc.PhysicsBody:createEdgePolygon(temp3, cc.PhysicsMaterial(100, 1, 0))
+--     -- cc.PhysicsBody:createBox(cc.size(100,100), cc.PhysicsMaterial(100, 1, 0))
+--     boxPhysicsBody:setDynamic(false)
+--     box:setPhysicsBody(boxPhysicsBody)
+
+--     local box = display.newSprite("#bar2.png"):pos(100,300):addTo(self.layer)
+--     -- dump(self.layer:getContentSize())
+--     local temp2 = {}
+--     for i,v in ipairs(temp) do
+--         temp2[i] = cc.p(v.x + 223,v.y)
+--     end
+--     local boxPhysicsBody = cc.PhysicsBody:createEdgePolygon(temp2, cc.PhysicsMaterial(100, 1, 0))
+--     -- cc.PhysicsBody:createBox(cc.size(100,100), cc.PhysicsMaterial(100, 1, 0))
+--     boxPhysicsBody:setDynamic(false)
+--     box:setPhysicsBody(boxPhysicsBody)
 
 return PlayScene
 

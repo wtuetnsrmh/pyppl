@@ -156,22 +156,7 @@ function GameLayer:hasBall(row, col)
     return false
 end
 
---掉落泡泡
-function GameLayer:downBubbleAction(pBubble)
-    local pos = cc.p(pBubble:getPositionX(),pBubble:getPositionY())
-    local offPos = self:convertToNodeSpace(cc.p(pos.x,-100))
-    local offY = offPos.y
-    pBubble:runAction(
-            cc.Sequence:create(
-                cc.MoveTo:create((pos.y - offY) / 600.0, cc.p(pos.x, offY)),
-                cc.CallFunc:create(function()
-                    if pBubble then
-                        pBubble:removeSelf()
-                    end
-                end)
-            )
-        )
-end
+
 
 -- TODO (这里有BUG，当一次消除太多时，场景重新定位时会出现，有的球没掉落动画，这里最后要放到单独的物理场景中)
 --执行可以掉落的泡泡 fallBubbleList为iparis的RowCol结构表
@@ -179,10 +164,11 @@ function GameLayer:FallBubble(fallBubbleList)
     for _,rc in pairs(fallBubbleList) do
         local pBubble = self.m_board[ rc.m_nRow .. rc.m_nCol ]
         if pBubble then
-            -- self:downBubbleAction(pBubble)
             local pos = cc.p(pBubble:getPositionX(),pBubble:getPositionY())
             local worldP = self:convertToWorldSpace(pos)
-            self.playScene:createBublle(pBubble:getColor(),worldP.x,worldP.y)
+            self.playScene:downBubbleAction(worldP, pBubble:getColor())
+            -- TODO
+            -- self.playScene:createBublle(pBubble:getColor(),worldP.x,worldP.y)
             self.m_board[ rc.m_nRow .. rc.m_nCol ] = nil
             self.m_listBubble[rc.m_nRow .. rc.m_nCol] = nil
             pBubble:removeSelf()

@@ -111,11 +111,25 @@ function MapEditScene:initDebugUI()
 	self.popLayer:removeAllChildren()
 
 	self.editMapLayer = EditMapLayer.new({mapEditScene = self, op = self.op,maxRow = self.maxRow,maxColor = self.maxColor,
-		starlevel = self.starlevel, queue = self.queue, name = self.name }):pos(10,0):addTo(self)
+		starlevel = self.starlevel, queue = self.queue, name = self.name }):pos(10,0)
 
-    self:performWithDelay(function()
+    -- 这里分不同系统做处理，否则WIN下延时后MAC下点不了
+    if device.platform == "windows" then
+        self.editMapLayer:addTo(self)
+        self:performWithDelay(function()
             self:perFun()
         end, 0.3)
+    else
+        local sv = cc.ui.UIScrollView.new({viewRect = cc.rect(0,150,display.width,display.height - 150 )})
+        sv:addScrollNode(self.editMapLayer)
+            :onScroll(handler(self, self.scrollListener))
+            :setDirection(1) --只支持纵向滑动
+            :addTo(self,3)
+        self:initCommonUI()
+    end
+    
+
+    
    
 end
 
