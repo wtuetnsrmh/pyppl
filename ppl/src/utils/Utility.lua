@@ -33,6 +33,78 @@ RowCol GameLayer::getRowColByPos( int nPosX, int nPosY)
 local BublleSprite = import("..app.scenes.BublleSprite")
 local BublleBasic = import("..app.modle.BublleBasic")
 
+
+------------wheel-------------------
+function convertA1ToA2(centerPoint,paopaoPos, angle)
+	local x,y = paopaoPos.x,paopaoPos.y
+	local angle1 = 0
+	if (x-centerPoint.x) == 0 then
+		if (y-centerPoint.y>0) then
+			angle1 = 90
+		elseif(y-centerPoint.y<0) then
+			angle1 = 270
+		end
+	else
+		angle1 = math.atan((y-centerPoint.y) / (x-centerPoint.x) )
+		angle1 = math.deg(angle1) --CC_RADIANS_TO_DEGREES
+	end
+	if(x-centerPoint.x < 0.0) then
+		angle1 = angle1 + 180
+	end
+	-- TODO 用cc.pGetDistance
+	local r = cc.pGetDistance(paopaoPos,centerPoint)
+	-- math.sqrt(math.pow(y-centerPoint.y, 2) + math.pow(x-centerPoint.x, 2) )
+
+	local x1 = r * math.cos( math.rad(  angle1 + angle)  )
+	local x11= x1	+ centerPoint.x
+	local y1 = r * math.sin( math.rad(( angle1 + angle ) )
+	local y11 = y1 + centerPoint.y
+	local truePoint = cc.p(x11, y11)
+	
+	return truePoint
+end
+
+--三点求三角形面积 S=(1/2)*(x1y2+x2y3+x3y1-x1y3-x2y1-x3y2)
+function trianglearea(x1,y1,x2,y2,x3,y3)
+	local temp = (x2*y3-y2*x3+x3*y1-y3*x1+x1*y2-x2*y1)
+	return math.abs(1.0/2*temp)
+end
+
+--两点距离
+function dist(x1, y1, x2, y2)
+	return math.sqrt((x1-x2)*(x1-x2) + (y1-y2)*(y1-y2))
+end
+
+-- 点(x1,y1)到直线(x2,y2,x3,y3)的距离   d=|Aa+Bb+C|/√(A^2+B^2) 
+function distance(x1, y1, x2, y2, x3, y3)
+	local temp1 = trianglearea(x1,y1,x2,y2,x3,y3)
+	local temp2 = cc.pGetDistance(cc.p(x2,y2),cc.p(x3,y3)) --dist(x2,y2,x3,y3)
+	return 2*temp1/temp2
+end
+
+--点(x1,y1)到直线(x2,y2,x3,y3)的垂足
+function chuizu( x1, y1, x2, y2, x3, y3)
+	if(x2 == x3) then --竖着的一直线
+		return cc.p(x2,y1)
+	elseif(y2 == y3) then --横着的一直线
+		return cc.p(x1,y2)
+	else 
+		float k = (y3-y2)/(x3-x2)
+		float xx = (k*k*x2 + k * (y1-y2) + x1)/(k*k+1)
+		float yy = k*(xx - x2) + y2
+		return cc.p(xx,yy)
+	end
+end
+
+
+function sign(x)
+	if(x>0.0) then
+		return 1
+	else
+		return -1
+	end
+end
+------------------------------------
 --生成发射球角度
 function isAngle(dxNew, dyNew, color)
     local a1 = math.atan((dxNew - bubpos.x) / (dyNew - bubpos.y))

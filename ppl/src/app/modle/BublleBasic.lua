@@ -19,4 +19,12 @@ function BublleBasic:ctor(data)
     -- self.imageFilename = string.format("popups/bublle%d.png",self.type)
 end
 
+function BublleBasic:returnImageBy()
+	if self.type == BUBLLE_TYPE.normal then
+		return string.format("#bublle%02d.png",self.color)
+	else
+		return string.format("#special_bublle%02d.png",self.type)
+	end
+end
+
 return BublleBasic

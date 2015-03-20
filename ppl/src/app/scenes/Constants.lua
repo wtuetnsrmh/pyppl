@@ -18,6 +18,7 @@ MAX_RANDOM          = 1 --最大随机数，这个值由外部配置文件重载
 CUR_RANDOM          = 0 -- 当前随机数，用于加到所有球的颜色值上
 MAX_ROWS			= 11 --这个值由外部配置文件重载
 MAX_COLS			= 11 --这个值由外部配置文件重载
+BOARD_EXTRA_SIZE    = 10
 REMOVE_COUNT		= 3 --多少个可以消除
 MAX_COLOR           = 6-- 总共6种颜色球 从1 -6 ：红蓝绿黄紫 随机
 GameState =
@@ -64,6 +65,7 @@ BUBLLE_TYPE = {
 	bomb = 5,
 	flash = 6,
 	colour = 7,
+	center = 8, --旋转模式的中心点球
 }
 
 

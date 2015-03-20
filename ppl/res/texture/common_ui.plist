@@ -7,11 +7,11 @@
             <key>ExitButton.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,108},{176,104}}</string>
+                <string>{{2,180},{176,104}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{176,104}}</string>
                 <key>sourceSize</key>
@@ -24,7 +24,7 @@
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{176,104}}</string>
                 <key>sourceSize</key>
@@ -33,11 +33,11 @@
             <key>bar1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{180,134},{70,64}}</string>
+                <string>{{108,146},{70,64}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{70,64}}</string>
                 <key>sourceSize</key>
@@ -46,11 +46,11 @@
             <key>bar2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{180,68},{70,64}}</string>
+                <string>{{108,74},{70,64}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{70,64}}</string>
                 <key>sourceSize</key>
@@ -59,11 +59,11 @@
             <key>bar3.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{180,2},{70,64}}</string>
+                <string>{{108,2},{70,64}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{70,64}}</string>
                 <key>sourceSize</key>
@@ -72,7 +72,7 @@
             <key>bublle01.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,398},{65,65}}</string>
+                <string>{{174,136},{65,65}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -85,7 +85,7 @@
             <key>bublle02.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{136,331},{65,65}}</string>
+                <string>{{174,69},{65,65}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -98,7 +98,7 @@
             <key>bublle03.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{69,281},{65,65}}</string>
+                <string>{{174,2},{65,65}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -111,7 +111,7 @@
             <key>bublle04.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,281},{65,65}}</string>
+                <string>{{127,416},{65,65}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -124,7 +124,7 @@
             <key>bublle05.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{136,264},{65,65}}</string>
+                <string>{{175,282},{65,65}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -137,7 +137,7 @@
             <key>bublle06.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{69,214},{65,65}}</string>
+                <string>{{127,349},{65,65}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -150,7 +150,7 @@
             <key>pass_enter_btn.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{180,200},{67,62}}</string>
+                <string>{{108,218},{67,62}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -160,10 +160,23 @@
                 <key>sourceSize</key>
                 <string>{67,62}</string>
             </dict>
+            <key>special_bublle08.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,358},{123,123}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{123,123}}</string>
+                <key>sourceSize</key>
+                <string>{123,123}</string>
+            </dict>
             <key>test_bar.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,214},{65,65}}</string>
+                <string>{{108,282},{65,65}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -183,7 +196,7 @@
             <key>size</key>
             <string>{256,512}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:e34da3bb49074496df3bc5d8ea7f8dac:1/1$</string>
+            <string>$TexturePacker:SmartUpdate:ee7412a26d327977bbd18087bf1e2372:1/1$</string>
             <key>textureFileName</key>
             <string>common_ui.pvr.ccz</string>
         </dict>
