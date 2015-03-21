@@ -57,7 +57,7 @@ function convertA1ToA2(centerPoint,paopaoPos, angle)
 
 	local x1 = r * math.cos( math.rad(  angle1 + angle)  )
 	local x11= x1	+ centerPoint.x
-	local y1 = r * math.sin( math.rad(( angle1 + angle ) )
+	local y1 = r * math.sin( math.rad( angle1 + angle ) )
 	local y11 = y1 + centerPoint.y
 	local truePoint = cc.p(x11, y11)
 	
@@ -89,9 +89,9 @@ function chuizu( x1, y1, x2, y2, x3, y3)
 	elseif(y2 == y3) then --横着的一直线
 		return cc.p(x1,y2)
 	else 
-		float k = (y3-y2)/(x3-x2)
-		float xx = (k*k*x2 + k * (y1-y2) + x1)/(k*k+1)
-		float yy = k*(xx - x2) + y2
+		local k = (y3-y2)/(x3-x2)
+		local xx = (k*k*x2 + k * (y1-y2) + x1)/(k*k+1)
+		local yy = k*(xx - x2) + y2
 		return cc.p(xx,yy)
 	end
 end

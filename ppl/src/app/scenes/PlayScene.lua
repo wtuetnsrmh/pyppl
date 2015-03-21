@@ -36,25 +36,53 @@ function PlayScene:ctor(params)
     local wallBox = display.newNode()
     wallBox:setAnchorPoint(cc.p(0.5, 0.5))
     wallBox:setPhysicsBody(
-        cc.PhysicsBody:createEdgeBox(cc.size(display.width, display.height+40)))
+        cc.PhysicsBody:createEdgeBox(cc.size(display.width, display.height+40), cc.PhysicsMaterial(0.1, WALL_ELASTICITY, WALL_FRICTION)))
     wallBox:setPosition(display.cx, display.cy+20)
     self:addChild(wallBox)
 
+    -- 蜘蛛
+    local box = display.newSprite("#test_bar.png"):pos(100,300):addTo(self)
+    -- dump(self.layer:getContentSize())
+    local temp = {cc.p(54.95,119.85),cc.p(67.2,118.05),cc.p(78.2,90.1),cc.p(32.1,90.15),cc.p(42.6,118)}
+    local temp3 = {}
+    for i,v in ipairs(temp) do
+        temp3[i] = cc.p(v.x + 50,v.y)
+    end
+    local boxPhysicsBody = cc.PhysicsBody:createEdgePolygon(temp3, cc.PhysicsMaterial(0.1, 0.99, 0))
+    boxPhysicsBody:setDynamic(false)
+    boxPhysicsBody:setContactTestBitmask(16); -- 1111
+    boxPhysicsBody:setGroup(2)
+    box:setPhysicsBody(boxPhysicsBody)
+
+    local box = display.newSprite("#test_bar.png"):pos(100,300):addTo(self)
+    -- dump(self.layer:getContentSize())
+    local temp2 = {}
+    for i,v in ipairs(temp) do
+        temp2[i] = cc.p(v.x + 223,v.y)
+    end
+    local boxPhysicsBody = cc.PhysicsBody:createEdgePolygon(temp2, cc.PhysicsMaterial(0.1, 0.99, 0))
+    boxPhysicsBody:setGroup(2)
+    boxPhysicsBody:setContactTestBitmask(16); -- 1111
+    boxPhysicsBody:setDynamic(false)
+    box:setPhysicsBody(boxPhysicsBody)
+
     -- 底部用于检测是否碰到清除球 TODO
-    -- local removeBarSp = display.newSprite("#test_bar.png")
-    -- local removeBarBody = cc.PhysicsBody:createBox(cc.size(display.width,100),cc.PhysicsMaterial(33, 100, 10 ))
-    -- removeBarBody:setDynamic(false)
-    -- removeBarBody:setTag(0)
-    -- removeBarSp:setPhysicsBody(removeBarBody)
-    -- removeBarSp:setPosition(display.cx,50)
-    -- self:addChild(removeBarSp)
+    local removeBarSp = display.newSprite("#test_bar.png")
+    local removeBarBody = cc.PhysicsBody:createBox(cc.size(display.width,100),cc.PhysicsMaterial(0.1, 1, 0 ))
+    removeBarBody:setDynamic(false)
+    removeBarSp:setPhysicsBody(removeBarBody)
+    removeBarSp:setPosition(display.cx,50)
+    self:addChild(removeBarSp)
     -- removeBarBody:setCategoryBitmask(1);    -- 0110
-    -- removeBarBody:setContactTestBitmask(1); -- 0010
-    -- removeBarBody:setCollisionBitmask(1);   -- 1000
+    removeBarBody:setContactTestBitmask(16); -- 1111
+    removeBarBody:setCollisionBitmask(16);   -- 1111
 
     -- add debug node
-    self:getPhysicsWorld():setDebugDrawMask(
-        true and cc.PhysicsWorld.DEBUGDRAW_ALL or cc.PhysicsWorld.DEBUGDRAW_NONE)
+    -- self:getPhysicsWorld():setDebugDrawMask(
+    --     true and cc.PhysicsWorld.DEBUGDRAW_ALL or cc.PhysicsWorld.DEBUGDRAW_NONE)
+
+    -- test
+    self:createBublle(1,200,700)
 end
 
 function PlayScene:initData()
@@ -76,23 +104,42 @@ function PlayScene:onEnter()
     self.touchLayer:addNodeEventListener(cc.NODE_TOUCH_EVENT, function(event)
         return self:onTouch(event)
     end)
-
+    local flag = true
     local function onContactBegin(contact)
-        print("onContactBegin")
+        
         local aBody = contact:getShapeA():getBody()
-        if aBody:getTag() ~= 0 then
-            aBody:getNode():removeSelf()
-        end
+        -- print("aBody.group",aBody:getGroup())
         local bBody = contact:getShapeB():getBody()
-        if bBody:getTag() ~= 0 then
+        -- print("bBody.group",bBody:getGroup())
+        if flag and (aBody:getGroup() == 2 or bBody:getGroup() == 2) then
+            print("onContactBegin")
+            flag = false
+            return true
+        end
+
+        if aBody:getGroup() == 0 then
             bBody:getNode():removeSelf()
         end
+        if bBody:getGroup() == 0 then
+            aBody:getNode():removeSelf()
+        end
+        -- if aBody:getTag() ~= 0 then
+        --     aBody:getNode():removeSelf()
+        -- end
+        
+        -- if bBody:getTag() ~= 0 then
+        --     bBody:getNode():removeSelf()
+        -- end
         -- return contact:getContactData().normal.y < 0;
         return true
       end
 
     local function onContactLevel(contact)
-        print("onContactLevel")
+        if not flag then
+            print("onContactLevel")
+            flag = true
+        end
+        
         return true
       end
 
@@ -149,6 +196,7 @@ function PlayScene:onTouch(event)
 end
 
 function PlayScene:touchEnded(event)
+     self:createBublle(1,350,700)
     if self.m_state ~= GameState.GS_START then
         return
     end
@@ -223,17 +271,25 @@ function PlayScene:downBubbleAction(pos,color)
         )
 end
 
+--[[
+type：描述了一系列的形状，例如圆形，矩形，多边形等。
+area：用于计算刚体的质量。密度和体积决定了刚体的质量。
+mass：刚体所含的物质的量，可以用两种方式进行测量：物体在给定的力下获得的加速度大小，或者在一个引力场中物体受到力的大小。
+moment：决定了获得特定角加速度所需要的转矩。
+offset：在刚体的当前坐标中，相对于刚体的重心所偏移的量。
+tag：用以使开发者较容易地确定形状。你大概还能记得把？你可以为所有的节点都分配一个标签，以进行辨识和实现更容易的访问
+]]
 function PlayScene:createBublle(color,x, y,rc)
     -- add sprite to scene
     local bubble = display.newSprite(string.format("#bublle%02d.png",color))
     self:addChild(bubble)
     local bubbleBody = cc.PhysicsBody:createCircle(33,
-        cc.PhysicsMaterial(33, BUBBLE_FRICTION, BUBBLE_ELASTICITY))
-    bubbleBody:setMass(1000)
-    -- bubbleBody:setGroup(-1)
+        cc.PhysicsMaterial(BUBBLE_DENSITY, BUBBLE_ELASTICITY, BUBBLE_FRICTION))
+    -- bubbleBody:setMass(1000)
+    bubbleBody:setGroup(-1)
     -- TODO
-    -- bubbleBody:setCategoryBitmask(1);    -- 0011
-    -- bubbleBody:setContactTestBitmask(1); -- 1000
+    -- bubbleBody:setCategoryBitmask(16);    -- 0011
+    bubbleBody:setContactTestBitmask(1); -- 1000
     -- bubbleBody:setCollisionBitmask(2);   -- 0100
     bubbleBody:setRotationEnable(true)
     bubbleBody:setTag(color)

@@ -72,12 +72,12 @@ BUBLLE_TYPE = {
 
 -- 物理相关
 GRAVITY         = -1000
-BUBBLE_MASS       = 0
-BUBBLE_FRICTION   = 0
-BUBBLE_ELASTICITY = 0.8
+BUBBLE_DENSITY       = 0 -- 球的密度 它被用于计算母体的质量属性。
+BUBBLE_FRICTION   = 0 --球的摩擦力  它被用于进行物体间的相对运动。
+BUBBLE_ELASTICITY = 1 --球的弹性 0-1之间 0说明不反弹，1说明完全反弹
+WALL_FRICTION   = 0 --墙壁的摩擦力  它被用于进行物体间的相对运动。
+WALL_ELASTICITY = 0.99 --墙壁的弹性 0-1之间 0说明不反弹，1说明完全反弹
 WALL_THICKNESS  = 64
-WALL_FRICTION   = 1.0
-WALL_ELASTICITY = 100
 
 AUDIO_ASSETS = {
 	bg      = "sound/bg.wav",
