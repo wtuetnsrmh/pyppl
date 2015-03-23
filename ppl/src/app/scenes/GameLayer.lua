@@ -73,9 +73,6 @@ function GameLayer:onEnterFrame(dt)
 
         self:execClearBubble(self.m_curReady)
 
-        local fallList = self:checkFallBubble()
-        self:FallBubble(fallList)
-
         self:adjustLayerPos()
 
         self:unscheduleUpdate()
@@ -112,7 +109,7 @@ function GameLayer:initData()
     self.m_nGoldenBubbleCount = 0 -- 特殊球金球
     self.m_nSliveryBubbleCount = 0 -- 特殊球银球
 
-    self.m_real = nil  -- 真实坐标
+    self.m_real = nil  -- 移动单位向量
 
     local path = string.format("mapData/%s.json",self.level)--%03d.json
     if device.platform == "windows" then
@@ -157,8 +154,6 @@ function GameLayer:hasBall(row, col)
 end
 
 
-
--- TODO (这里有BUG，当一次消除太多时，场景重新定位时会出现，有的球没掉落动画，这里最后要放到单独的物理场景中)
 --执行可以掉落的泡泡 fallBubbleList为iparis的RowCol结构表
 function GameLayer:FallBubble(fallBubbleList)
     for _,rc in pairs(fallBubbleList) do
@@ -166,8 +161,6 @@ function GameLayer:FallBubble(fallBubbleList)
         if pBubble then
             local pos = cc.p(pBubble:getPositionX(),pBubble:getPositionY())
             local worldP = self:convertToWorldSpace(pos)
-            -- self.playScene:downBubbleAction(worldP, pBubble:getColor())
-            -- TODO
             self.playScene:createBublle(pBubble:getColor(),worldP.x,worldP.y)
             self.m_board[ rc.m_nRow .. rc.m_nCol ] = nil
             self.m_listBubble[rc.m_nRow .. rc.m_nCol] = nil
@@ -276,6 +269,9 @@ function GameLayer:execClearBubble(pReadyBubble)
     clearBubbleList = self:findClearBubble(pReadyBubble)
     if clearBubbleList then
         self:clearBubble(clearBubbleList)
+        -- 有消除操作时才检测是否有掉落
+        local fallList = self:checkFallBubble()
+        self:FallBubble(fallList)
     end
 end
 

@@ -7,7 +7,7 @@ BUBBLE_RADIUS = 32 -- 球的半径  65
 -- INIT_LINE			(4)
 
 
-BUBBLE_SPEED		= 30 -- 球速
+BUBBLE_SPEED		= 3 -- 球速
 READY_BUBBLE_POS	= cc.p(display.cx, 128)  -- 发射球的初始位置
 WAIT_BUBBLE_POS     = cc.p(display.cx + 100, 100)  -- 等待球的初始位置
 COLLISON_OFFSET     = 5 --碰撞检测比真实半径小的数量
@@ -56,7 +56,7 @@ LEVEL_MODEL = {
 
 三色泡泡(自创)：可以同时被认为为红蓝绿三种颜色，但优先级为红>蓝>绿。
 ]]
-BUBLLE_TYPE = {
+BUBBLE_TYPE = {
 	normal = 0,
 	fog = 1,
 	black = 2,

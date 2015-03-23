@@ -183,7 +183,7 @@ function EditMapLayer:popEditBubblePanel(row,col)
     self.popPropertyLayer:addChild(editBox2)
 
     -- 类型
-    display.newTTFLabel({text = string.format("类型(1-%d)： ",table.nums(BUBLLE_TYPE))})
+    display.newTTFLabel({text = string.format("类型(1-%d)： ",table.nums(BUBBLE_TYPE))})
     	:pos(initX,initY-200):addTo(self.popPropertyLayer)
 	local editBox2 = cc.ui.UIInput.new({
         image = "#test_bar.png",
@@ -195,7 +195,7 @@ function EditMapLayer:popEditBubblePanel(row,col)
                 
             elseif event == "ended" then
                 local s = editbox:getText()
-                if tonumber(s) <= table.nums(BUBLLE_TYPE) then
+                if tonumber(s) <= table.nums(BUBBLE_TYPE) then
                 	bublleData.type = tonumber(s)
                 else
                 	print("出错：输入的类型值比设置的最大颜色值大")

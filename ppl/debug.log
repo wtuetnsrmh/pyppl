@@ -61,35 +61,342 @@ unsupport convert for format 8 to format 2
 error:
      cc.SpriteFrameCache:addSpriteFramesWithFile argument #3 is 'cc.Texture2D'; 'string' expected.
 
-can not get file data of src/app/scenes/GameLayer.lua
-[LUA-print] ----------------------------------------
-[LUA-print] LUA ERROR: [string "framework/functions.lua"]:481: module 'app.scenes.GameLayer' not found:
-	no field package.preload['app.scenes.GameLayer']
-	no file './app/scenes/GameLayer.lua'
-	no file '/usr/local/share/lua/5.1/app/scenes/GameLayer.lua'
-	no file '/usr/local/share/lua/5.1/app/scenes/GameLayer/init.lua'
-	no file '/usr/local/lib/lua/5.1/app/scenes/GameLayer.lua'
-	no file '/usr/local/lib/lua/5.1/app/scenes/GameLayer/init.lua'
-	no file '/Users/poyou/bbjxl/project/gitPPL/ppl/src/app/scenes/GameLayer.lua'
-	no file 'src/'
-	no file './app/scenes/GameLayer.so'
-	no file '/usr/local/lib/lua/5.1/app/scenes/GameLayer.so'
-	no file '/usr/local/lib/lua/5.1/loadall.so'
-	no file './app.so'
-	no file '/usr/local/lib/lua/5.1/app.so'
-	no file '/usr/local/lib/lua/5.1/loadall.so'
-
-[LUA-print] 
-stack traceback:
-	[C]: in function 'require'
-	[string "framework/functions.lua"]:481: in function 'import'
-	[string "app/scenes/PlayScene.lua"]:18: in main chunk
-	[C]: in function 'require'
-	[string "utils/UIHelper.lua"]:52: in function 'switchScene'
-	[string "app/scenes/WelcomeScene.lua"]:20: in function '?'
-	[string "framework/cc/components/behavior/EventProtocol.lua"]:59: in function <[string "framework/cc/components/behavior/EventProtocol.lua"]:38>
-	(tail call): ?
-	[string "framework/cc/ui/UIPushButton.lua"]:122: in function <[string "framework/cc/ui/UIPushButton.lua"]:94>
-	(tail call): ?
-	[string "framework/cocos2dx/NodeEx.lua"]:394: in function <[string "framework/cocos2dx/NodeEx.lua"]:348>
-[LUA-print] ----------------------------------------
+[Edit text] content size = (100.000000, 50.000000)
+[Edit text] content size = (100.000000, 50.000000)
+[LUA-print] 输入的关卡文件名：	001
+[LUA-print] path	/Users/poyou/bbjxl/project/gitPPL/ppl/res/mapData/001.json
+[LUA-print] name =	001
+[LUA-print] mapData/001.json
+[LUA-print] maxRow	3
+[LUA-print] maxY	224
+[LUA-print] #vecRowCol	6
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	2	3	6
+[LUA-print] #samelist	2
+[LUA-print] #vecRowCol	6
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	2	4	6
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	2	2	7
+[LUA-print] #samelist	3
+[LUA-print] #vecRowCol	6
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	2	3	6
+[LUA-print] #clearBubble num = 	3
+[LUA-print] maxRow	3
+[LUA-print] maxY	224
+[LUA-print] #vecRowCol	6
+[LUA-print] 没有超过3个同色
+[LUA-print] maxRow	4
+[LUA-print] maxY	288
+[LUA-print] #vecRowCol	6
+[LUA-print] 没有超过3个同色
+[LUA-print] maxRow	5
+[LUA-print] maxY	352
+[LUA-print] #vecRowCol	6
+[LUA-print] 没有超过3个同色
+[LUA-print] maxRow	6
+[LUA-print] maxY	416
+[LUA-print] #vecRowCol	6
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	5	6	6
+[LUA-print] #samelist	2
+[LUA-print] #vecRowCol	6
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	5	6	5
+[LUA-print] 没有超过3个同色
+[LUA-print] maxRow	6
+[LUA-print] maxY	416
+[LUA-print] dis	106.27242618684	6	4
+[LUA-print] dis	37.380383297234	7	5
+[LUA-print] dis	103.96482286008	5	4
+[LUA-print] dis	81.167314229301	7	4
+[LUA-print] dis	89.494743065658	6	7
+[LUA-print] dis	92.838594909812	5	6
+[LUA-print] dis	66.32083542672	7	6
+[LUA-print] dis	37.380383297234	7	5
+[LUA-print] #vecRowCol	6
+[LUA-print] 没有超过3个同色
+[LUA-print] maxRow	7
+[LUA-print] maxY	480
+[LUA-print] #vecRowCol	6
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	1	7	5
+[LUA-print] #samelist	2
+[LUA-print] #vecRowCol	6
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	1	8	5
+[LUA-print] 没有超过3个同色
+[LUA-print] maxRow	8
+[LUA-print] maxY	544
+[LUA-print] #vecRowCol	6
+[LUA-print] 没有超过3个同色
+[LUA-print] maxRow	9
+[LUA-print] maxY	608
+[LUA-print] #vecRowCol	6
+[LUA-print] 没有超过3个同色
+[LUA-print] maxRow	10
+[LUA-print] maxY	672
+[LUA-print] dis	99.269447216146	10	4
+[LUA-print] dis	42.025584030435	10	6
+[LUA-print] dis	28.669305720506	11	5
+[LUA-print] dis	103.91652310005	9	4
+[LUA-print] dis	69.757191810206	11	4
+[LUA-print] dis	99.269447216146	10	4
+[LUA-print] dis	42.025584030435	10	6
+[LUA-print] dis	28.669305720506	11	5
+[LUA-print] dis	103.91652310005	9	4
+[LUA-print] dis	69.757191810206	11	4
+[LUA-print] #vecRowCol	6
+[LUA-print] 没有超过3个同色
+[LUA-print] maxRow	11
+[LUA-print] maxY	736
+[LUA-print] #vecRowCol	6
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	2	11	5
+[LUA-print] #samelist	2
+[LUA-print] #vecRowCol	6
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	2	12	5
+[LUA-print] 没有超过3个同色
+[LUA-print] maxRow	12
+[LUA-print] maxY	800
+[LUA-print] dis	99.237745075858	12	4
+[LUA-print] dis	34.445682570403	12	6
+[LUA-print] dis	38.83930077671	13	5
+[LUA-print] dis	97.60196622332	11	4
+[LUA-print] dis	76.41533736642	13	4
+[LUA-print] dis	99.237745075858	12	4
+[LUA-print] dis	34.445682570403	12	6
+[LUA-print] dis	38.83930077671	13	5
+[LUA-print] dis	97.60196622332	11	4
+[LUA-print] dis	76.41533736642	13	4
+[LUA-print] #vecRowCol	6
+[LUA-print] 没有超过3个同色
+[LUA-print] maxRow	12
+[LUA-print] maxY	800
+[LUA-print] #vecRowCol	6
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	1	12	6
+[LUA-print] #samelist	2
+[LUA-print] #vecRowCol	6
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	1	13	5
+[LUA-print] 没有超过3个同色
+[LUA-print] maxRow	13
+[LUA-print] maxY	864
+[LUA-print] #vecRowCol	6
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	1	8	5
+[LUA-print] #samelist	2
+[LUA-print] #vecRowCol	6
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	1	8	4
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	1	7	5
+[LUA-print] #samelist	3
+[LUA-print] #vecRowCol	6
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	1	8	5
+[LUA-print] #clearBubble num = 	3
+[LUA-print] maxRow	6
+[LUA-print] maxY	416
+[LUA-print] #vecRowCol	6
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	1	3	2
+[LUA-print] #samelist	2
+[LUA-print] #vecRowCol	6
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	1	2	3
+[LUA-print] #samelist	3
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	1	4	3
+[LUA-print] #vecRowCol	6
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	1	3	2
+[LUA-print] #clearBubble num = 	3
+[LUA-print] maxRow	6
+[LUA-print] maxY	416
+[LUA-print] #vecRowCol	6
+[LUA-print] 没有超过3个同色
+[LUA-print] maxRow	6
+[LUA-print] maxY	416
+[LUA-print] #vecRowCol	6
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	5	4	9
+[LUA-print] #samelist	2
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	5	3	7
+[LUA-print] #samelist	3
+[LUA-print] #vecRowCol	6
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	5	4	8
+[LUA-print] #vecRowCol	6
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	5	2	8
+[LUA-print] #samelist	4
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	5	4	8
+[LUA-print] #vecRowCol	6
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	5	3	7
+[LUA-print] #clearBubble num = 	4
+[LUA-print] maxRow	6
+[LUA-print] maxY	416
+[LUA-print] #vecRowCol	6
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	1	3	8
+[LUA-print] #samelist	2
+[LUA-print] #vecRowCol	6
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	1	2	9
+[LUA-print] #samelist	3
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	1	4	9
+[LUA-print] #vecRowCol	6
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	1	3	8
+[LUA-print] #clearBubble num = 	3
+[LUA-print] maxRow	6
+[LUA-print] maxY	416
+[LUA-print] #vecRowCol	6
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	2	3	3
+[LUA-print] #samelist	2
+[LUA-print] #vecRowCol	6
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	2	4	3
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	2	2	4
+[LUA-print] #samelist	3
+[LUA-print] #vecRowCol	6
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	2	3	3
+[LUA-print] #clearBubble num = 	3
+[LUA-print] maxRow	6
+[LUA-print] maxY	416
+[LUA-print] #vecRowCol	6
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	5	3	4
+[LUA-print] #samelist	2
+[LUA-print] #vecRowCol	6
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	5	4	4
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	5	2	5
+[LUA-print] #samelist	3
+[LUA-print] #vecRowCol	6
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	5	3	4
+[LUA-print] #clearBubble num = 	3
+[LUA-print] maxRow	6
+[LUA-print] maxY	416
+[LUA-print] #vecRowCol	6
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	1	1	4
+[LUA-print] #samelist	2
+[LUA-print] #vecRowCol	6
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	1	0	4
+[LUA-print] #samelist	3
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	1	2	4
+[LUA-print] #vecRowCol	4
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	1	1	4
+[LUA-print] #clearBubble num = 	3
+[LUA-print] maxRow	6
+[LUA-print] maxY	416
+[LUA-print] #vecRowCol	3
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	2	3	0
+[LUA-print] #samelist	2
+[LUA-print] #vecRowCol	5
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	2	4	0
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	2	2	1
+[LUA-print] #samelist	3
+[LUA-print] #vecRowCol	6
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	2	3	0
+[LUA-print] #clearBubble num = 	3
+[LUA-print] maxRow	6
+[LUA-print] maxY	416
+[LUA-print] #vecRowCol	6
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	5	3	1
+[LUA-print] #samelist	2
+[LUA-print] #vecRowCol	6
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	5	4	1
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	5	2	2
+[LUA-print] #samelist	3
+[LUA-print] #vecRowCol	6
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	5	3	1
+[LUA-print] #clearBubble num = 	3
+[LUA-print] maxRow	6
+[LUA-print] maxY	416
+[LUA-print] #vecRowCol	6
+[LUA-print] 没有超过3个同色
+[LUA-print] maxRow	6
+[LUA-print] maxY	416
+[LUA-print] #vecRowCol	6
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	5	1	3
+[LUA-print] #samelist	2
+[LUA-print] #vecRowCol	6
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	5	0	3
+[LUA-print] #samelist	3
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	5	2	3
+[LUA-print] #vecRowCol	4
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	5	1	3
+[LUA-print] #clearBubble num = 	3
+[LUA-print] maxRow	6
+[LUA-print] maxY	416
+[LUA-print] #vecRowCol	6
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	2	4	6
+[LUA-print] #samelist	2
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	2	3	4
+[LUA-print] #samelist	3
+[LUA-print] #vecRowCol	6
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	2	4	5
+[LUA-print] #vecRowCol	6
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	2	4	5
+[LUA-print] #clearBubble num = 	3
+[LUA-print] maxRow	3
+[LUA-print] maxY	224
+[LUA-print] #vecRowCol	6
+[LUA-print] 没有超过3个同色
+[LUA-print] maxRow	4
+[LUA-print] maxY	288
+[LUA-print] 碰撞到顶部但第一行却没有相撞的球
+[LUA-print] #vecRowCol	2
+[LUA-print] 没有超过3个同色
+[LUA-print] maxRow	4
+[LUA-print] maxY	288
+[LUA-print] #vecRowCol	6
+[LUA-print] 没有超过3个同色
+[LUA-print] maxRow	4
+[LUA-print] maxY	288
+[LUA-print] #vecRowCol	3
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	5	1	9
+[LUA-print] #samelist	2
+[LUA-print] #vecRowCol	5
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	5	0	9
+[LUA-print] #samelist	3
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	5	2	10
+[LUA-print] #vecRowCol	4
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	5	1	9
+[LUA-print] #clearBubble num = 	3
+[LUA-print] maxRow	4
+[LUA-print] maxY	288
+[LUA-print] #vecRowCol	6
+[LUA-print] 没有超过3个同色
+[LUA-print] maxRow	4
+[LUA-print] maxY	288
+[LUA-print] #vecRowCol	6
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	2	4	6
+[LUA-print] #samelist	2
+[LUA-print] #vecRowCol	6
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	2	5	6
+[LUA-print] 没有超过3个同色
+[LUA-print] maxRow	5
+[LUA-print] maxY	352
+[LUA-print] #vecRowCol	6
+[LUA-print] 没有超过3个同色
+[LUA-print] maxRow	5
+[LUA-print] maxY	352
+[LUA-print] #vecRowCol	6
+[LUA-print] 没有超过3个同色
+[LUA-print] maxRow	5
+[LUA-print] maxY	352
+[LUA-print] #vecRowCol	6
+[LUA-print] 没有超过3个同色
+[LUA-print] maxRow	5
+[LUA-print] maxY	352
+[LUA-print] #vecRowCol	6
+[LUA-print] 没有超过3个同色
+[LUA-print] maxRow	6
+[LUA-print] maxY	416
+[LUA-print] #vecRowCol	6
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	5	5	4
+[LUA-print] #samelist	2
+[LUA-print] #vecRowCol	6
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	5	6	4
+[LUA-print] 没有超过3个同色
+[LUA-print] maxRow	6
+[LUA-print] maxY	416
+[LUA-print] #vecRowCol	3
+[LUA-print] 没有超过3个同色
+[LUA-print] maxRow	6
+[LUA-print] maxY	416
+[LUA-print] #vecRowCol	6
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	5	6	4
+[LUA-print] #samelist	2
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	5	6	6
+[LUA-print] #samelist	3
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	5	5	4
+[LUA-print] #samelist	4
+[LUA-print] #vecRowCol	6
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	5	6	5
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	5	5	4
+[LUA-print] #vecRowCol	6
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	5	6	5
+[LUA-print] #vecRowCol	6
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	5	6	4
+[LUA-print] nColor , rowCol.m_nRow , rowCol.m_nCol	5	6	5
+[LUA-print] #clearBubble num = 	4
+[LUA-print] maxRow	5
+[LUA-print] maxY	352

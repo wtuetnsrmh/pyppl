@@ -15,7 +15,7 @@ function PopInputMapNameLayer:ctor(params)
 		end)
 
 	local initX,initY = 200,1000
-	self.name = "001"
+	self.name = "019"
 	display.newTTFLabel({text = "输入要编辑的关卡文件名： "}):pos(initX,initY):addTo(self)
 	local editBox2 = cc.ui.UIInput.new({
         image = "#test_bar.png",
@@ -55,7 +55,7 @@ function PopInputMapNameLayer:ctor(params)
 			
 		end
 	    
-	end):pos(display.cx,100):addTo(self)
+	end):pos(display.cx,display.height-200):addTo(self)
 
 end
 

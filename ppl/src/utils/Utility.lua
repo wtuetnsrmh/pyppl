@@ -165,6 +165,15 @@ function table.RCkeyof(hashtable, value)
     return nil
 end
 
+-- 是否各底部碰撞
+function isCollisionWithBottom(m_curReady)
+	local pos = cc.p(m_curReady:getPositionX(),m_curReady:getPositionY())
+	if pos.y < 100 then
+		return true
+	end
+	return false
+end
+
 -- 是否和左右边缘碰撞
 function isCollisionWithBorder(m_curReady)
 	local pos = cc.p(m_curReady:getPositionX(),m_curReady:getPositionY())
@@ -255,28 +264,49 @@ function randomBubble()
 end
 
 function getPosByRowAndCol(row, col)
-	local posX, posY, size
 
-	size = display.size
+	local diffx = 0--_paopaoOffset.x + _centerPointOffset.x
+	local diffy = 0--_paopaoOffset.y + _centerPointOffset.y
 
-	posX = col * 2 * BUBBLE_RADIUS + BUBBLE_RADIUS + (row % 2) * BUBBLE_RADIUS
-	posY = size.height - ( row * 2 * BUBBLE_RADIUS * math.sin(PI/3) + BUBBLE_RADIUS )
-
+	local posX = col * 2 * BUBBLE_RADIUS + BUBBLE_RADIUS  + (row % 2) * BUBBLE_RADIUS + diffx
+	local posY = ( row * 2 * BUBBLE_RADIUS * math.sin(PI/3) + BUBBLE_RADIUS ) + diffy
 	return cc.p(posX, posY)
-
-end
+end 
 
 function GetRowColByPos( nPosX, nPosY)
 	local nRow, nCol
-	--需要四舍五入
-	nPosY = display.size.height - nPosY 
 
-	nRow = ( nPosY - BUBBLE_RADIUS )/( 2 *BUBBLE_RADIUS *math.sin ( PI/3 ) ) +0.5
+	local diffx = 0--_paopaoOffset.x + _centerPointOffset.x
+	local diffy = 0--_paopaoOffset.y + _centerPointOffset.y
+	nRow = ( nPosY - diffy -BUBBLE_RADIUS )/( 2 *BUBBLE_RADIUS *math.sin ( PI/3 ) )  +0.5
+	nCol = ( nPosX - diffx - ( nRow % 2 ) * BUBBLE_RADIUS - BUBBLE_RADIUS ) * 1.0 /(  2 *BUBBLE_RADIUS ) + 0.5
 
-	nCol = ( nPosX - ( nRow % 2 ) * BUBBLE_RADIUS - BUBBLE_RADIUS ) /(  2 *BUBBLE_RADIUS ) +0.5
-	nCol = nCol < 0 and 0 or nCol
 	return math.floor(nRow), math.floor(nCol)
 end
+
+-- function getPosByRowAndCol(row, col)
+-- 	local posX, posY, size
+
+-- 	size = display.size
+
+-- 	posX = col * 2 * BUBBLE_RADIUS + BUBBLE_RADIUS + (row % 2) * BUBBLE_RADIUS
+-- 	posY = size.height - ( row * 2 * BUBBLE_RADIUS * math.sin(PI/3) + BUBBLE_RADIUS )
+
+-- 	return cc.p(posX, posY)
+
+-- end
+
+-- function GetRowColByPos( nPosX, nPosY)
+-- 	local nRow, nCol
+-- 	--需要四舍五入
+-- 	nPosY = display.size.height - nPosY 
+
+-- 	nRow = ( nPosY - BUBBLE_RADIUS )/( 2 *BUBBLE_RADIUS *math.sin ( PI/3 ) ) +0.5
+
+-- 	nCol = ( nPosX - ( nRow % 2 ) * BUBBLE_RADIUS - BUBBLE_RADIUS ) /(  2 *BUBBLE_RADIUS ) +0.5
+-- 	nCol = nCol < 0 and 0 or nCol
+-- 	return math.floor(nRow), math.floor(nCol)
+-- end
 
 --@获得周围停靠位置的列表nRow,nCol为要计算的停靠位置，vecPos返回它周围的位置
 function GetAround( nRow, nCol, vecPos )

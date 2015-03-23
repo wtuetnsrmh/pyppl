@@ -25,6 +25,15 @@ function BublleSprite:ctor(bublleModel)
     self.model = bublleModel
 end
 
+function BublleSprite:setStickPp(bubble)
+    
+end
+
+function BublleSprite:getAngleForce()
+    return 1
+end
+
+
 function BublleSprite:getModel()
     return self.model
 end
